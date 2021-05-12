@@ -3,7 +3,7 @@ import React from "react"
 const navBar = ()=>{
     return(
         <div className="App">
-            Navbar will be here
+            Just a sample demo
         </div>
     )
 }
