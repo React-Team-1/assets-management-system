@@ -13,7 +13,7 @@ html{
      display:grid;
      height: auto;
      padding:50px;
-     grid-template-columns: 1fr 1fr ;
+     grid-template-columns: 1fr 1fr 1fr 1fr ;
     
 }
 
@@ -110,8 +110,9 @@ transform: rotate(200deg);
 .fontIcons{
   position: relative;
   padding-left: 14px;
-  font-size: 2rem;
-bottom: 30px;
+  font-size: 1.5rem;
+bottom: 20px;
+cursor: pointer;
 }
 
 #font-second{
@@ -120,6 +121,25 @@ bottom: 30px;
 
 
 
+@media (max-width:1235px){
+  
+  .front-end-Wrapper{
+    display:grid;
+    height: auto;
+    padding:50px;
+    grid-template-columns: 1fr 1fr  ;
+   
+  }
+  
+  
+  .fontIcons{
+  
+    font-size: 1.6rem;
+  
+  }
+
+
+  /* tablets media query */
 @media screen and (max-width:700px) {
   .front-end-Wrapper{
      display: block;
@@ -165,8 +185,16 @@ bottom: 30px;
   
   }
 
+  .front-end-Wrapper{
+    display: block;
+  }
+
   
 
+
+
+
+}
 
 
 

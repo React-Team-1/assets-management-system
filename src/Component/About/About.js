@@ -12,10 +12,13 @@ const About = ()=>{
          <img  id="background-imgStyle" src="Assets/backgrounddStyle.png" alt="backgroundStyle"/>
          <img  id="background-imgStyle2" src="Assets/backgrounddStyle.png" alt="backgroundStyle"/>
           {/* Front end display starts here */}
-             <h2 id="front-end-title">FrontEnd Teams</h2>
+          <div>
+          <h2 id="front-end-title">FrontEnd Teams</h2>
             <div className="front-end-Wrapper">
             {FrontEndTeamInfo.Frontend.map(teams)}
             </div>
+          </div>
+             
            
         </div>
     )
