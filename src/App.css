@@ -7,6 +7,37 @@ html {
        
 } */
 
+.Group-div{
+  position: relative;
+  z-index:1;
+  width: 100%;
+  height: auto;
+ bottom:20px;
+}
+
+.group-img{
+     width:80%;
+     margin: auto;
+     text-align: center;
+}
+
+.group-img img{
+  width: 70%;
+  
+}
+
+.group-img p{
+  position:relative;
+  width:50%;
+  margin: auto;
+  top: 15px;
+  bottom: 25px;
+  font-size:1.5rem;
+  padding: 0px 20px 0px 20px;
+  text-justify: newspaper;
+  justify-self: center;
+}
+
 .front-end-Wrapper {
   display: grid;
   height: auto;

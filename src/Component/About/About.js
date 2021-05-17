@@ -1,5 +1,6 @@
 import React from "react"
 import FrontEndTeam from "./Frontend"
+import Group from "./Group"
 import TeamInfo from "./TeamMembers"
 
 
@@ -10,6 +11,9 @@ const About = () => {
 
             <img id="background-imgStyle" src="Assets/backgrounddStyle.png" alt="backgroundStyle" />
             <img id="background-imgStyle2" src="Assets/backgrounddStyle.png" alt="backgroundStyle" />
+            
+            <Group />
+
             {/* Front end display starts here */}
             <div>
                 <h2 id="front-end-title">FrontEnd Teams</h2>
