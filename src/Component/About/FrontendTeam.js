@@ -21,7 +21,7 @@ let members = {
 
         {
             teamId: "F03",
-            pName: "Emmanuel Ayeribi",
+            pName: "Emmanuel Ayirebi",
             pImage : "Assets/Amin.jpg",
             track:"Media & Design Trainee",
             linkedInhandle: "www.justice@linkedIn.com",
