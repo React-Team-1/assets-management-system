@@ -1,11 +1,42 @@
 import React from "react"
+import FrontEndTeam from "./Frontend"
+import FrontEndTeamInfo from "./FrontendTeam"
 
-const navBar = ()=>{
+
+
+
+const About = ()=>{
     return(
-        <div className="App">
-            Just a sample demo
+        <div className="About">
+         
+         <img  id="background-imgStyle" src="Assets/backgrounddStyle.png" alt="backgroundStyle"/>
+         <img  id="background-imgStyle2" src="Assets/backgrounddStyle.png" alt="backgroundStyle"/>
+          {/* Front end display starts here */}
+             <h2 id="front-end-title">FrontEnd Teams</h2>
+            <div className="front-end-Wrapper">
+            {FrontEndTeamInfo.Frontend.map(teams)}
+            </div>
+           
         </div>
     )
 }
 
-export default navBar
+
+function teams (member){
+
+    return (
+        <FrontEndTeam
+        key= {member.teamId}
+        teamName = {member.pName}
+        personImage ={member.pImage}
+        track={member.track}>
+        
+
+        </FrontEndTeam>
+
+    )
+
+}
+
+
+export default About
