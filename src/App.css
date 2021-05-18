@@ -51,14 +51,15 @@ html {
   right: 0;
   bottom: 10px;
   margin-bottom: 1000px;
-  margin-right: -300px;
+  margin-right: -500px;
+  transform: rotate(45deg);
 }
 
 #background-imgStyle2 {
   position: absolute;
   width: 50%;
   left: 0;
-  top: 750px;
+  top: 1200px;
   margin-left: -500px;
   transform: rotate(200deg);
 }
@@ -186,8 +187,8 @@ html {
     #background-imgStyle {
       position: absolute;
       left: 0;
-      bottom: 800px;
-      margin-left: 300px;
+      bottom: 200px;
+      margin-left: 500px;
       width: 70%;
       transform: rotate(45deg);
     }
@@ -195,7 +196,7 @@ html {
       position: absolute;
       width: 55%;
       left: 0;
-      top: 1700px;
+      top: 700px;
       margin-left: -100px;
       transform: rotate(210deg);
     }
