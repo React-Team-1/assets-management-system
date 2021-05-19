@@ -5,16 +5,21 @@
 }
 
 .navbar{
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 60px;
     background-color: black;
     color:white;
+
 }
 
 .logo {
     font-size: 30px;
+    position:absolute;
+    margin-left:40px;
+    left: 0;
 }
 
 .nav-links{
@@ -25,6 +30,8 @@
 }
 
 .dashbaord,.stores,.inventory,.about,.signup{
+    display: flex;
+    list-style: none;
     text-decoration: none;
     color:white;
     font-size: 16px;
@@ -60,9 +67,14 @@
         list-style: none;
         background-color: black;
         left: 0;
-        top: 75px;
+        top: 62px;
         transition: all 0.5s ease-out;
         width: 100%;
+    }
+
+    .nav-links-mobile:hover{
+        color: white;
+        cursor: pointer;
     }
 
     .dashbaord,.stores,.inventory,.about,.signup{
