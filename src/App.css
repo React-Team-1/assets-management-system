@@ -7,12 +7,15 @@ html {
        
 } */
 
+
 .Group-div{
+  padding-top: 20px;
   position: relative;
   z-index:1;
   width: 100%;
   height: auto;
- bottom:20px;
+ bottom:0;
+ top:40px;
 }
 
 .group-img{
@@ -38,10 +41,15 @@ html {
   justify-self: center;
 }
 
+
+.Team-divs-style{
+   margin-top: 80px;
+}
+
 .front-end-Wrapper {
   display: grid;
   height: auto;
-  padding: 50px;
+  padding-top: 50px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -116,6 +124,7 @@ html {
 #front-end-title {
   text-align: center;
   font-size: 1.5rem;
+  padding: 30px;
 }
 
 .connections-div {
@@ -131,7 +140,7 @@ html {
   position: relative;
   padding-left: 14px;
   font-size: 1.5rem;
-  bottom: 30px;
+  bottom: 0;
   cursor: pointer;
 }
 

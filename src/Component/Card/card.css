@@ -1,0 +1,46 @@
+.card-image{
+    background-image:linear-gradient(rgba(19, 18, 18, 0.527),rgba(0, 0, 0, 0.5)); 
+    background-image: url("../Card/coin-pile-near-glasses.jpg");
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
+    
+}
+
+.card-container{
+    margin-left: 100px;
+    width: 310px;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    
+}
+
+/*.card-container:hover{
+    box-shadow: 0px 0px 15px 0px;
+    transform: scale(1.1);
+
+}*/
+
+.card-title{
+    color: white;
+    margin-bottom: 0.5rem;
+    border-bottom: 4px solid rgba(252, 96, 21, 1);
+    justify-content: center;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+}
+.card-body{
+    color: white;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 19px;
+    padding: 10px 20px 10px 20px;
+    text-justify: newspaper;
+}
