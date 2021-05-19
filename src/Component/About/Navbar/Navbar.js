@@ -1,15 +1,22 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import "./Navbar.css";
-/*import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';*/
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faBars} from '@fortawesome/free-solid-svg-icons'
+
 
 const Navbar = () => {
+    let barsIcon = <FontAwesomeIcon icon={faTimes} />
+    let timesIcon = <FontAwesomeIcon icon={faBars} />
+   
+
     const [isMobile, setIsMobile] = useState(false);
     return (
         <nav className="navbar">
             <h3 className="logo">Logo</h3>
             <ul 
-                className={isMobile? "nav-links-mobile" : "nav-links"}
+                className={isMobile?  "nav-links-mobile" :"nav-links" }
                 onClick={() => setIsMobile(false)}
             >
                 <Link to="/" className="dashbaord">
@@ -37,7 +44,7 @@ const Navbar = () => {
             <button className="mobile-menu-icon"
                 onClick={() => setIsMobile(!isMobile)}
             >
-                {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
+                { isMobile ?  barsIcon :timesIcon }
             </button>
         </nav>
     )
