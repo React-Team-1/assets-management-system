@@ -3,10 +3,10 @@ html {
   margin: 0;
 }
 
-/* .App {
-       
-} */
 
+.App{
+  height: auto;
+}
 
 .Group-div{
   /*padding-top: px;*/
@@ -61,6 +61,7 @@ html {
   margin-bottom: 1000px;
   margin-right: -500px;
   transform: rotate(45deg);
+  pointer-events: none;
 }
 
 #background-imgStyle2 {
@@ -70,6 +71,7 @@ html {
   top: 1200px;
   margin-left: -500px;
   transform: rotate(200deg);
+  pointer-events: none;
 }
 
 .front-end-Teams-div {
@@ -141,7 +143,7 @@ html {
   position: relative;
   padding-left: 14px;
   font-size: 1.5rem;
-  bottom: 0;
+  top: 10px;
   cursor: pointer;
 }
 
@@ -151,7 +153,7 @@ html {
 }
 
 .footer {
-  position: relative;
+  /* position:relative; */
   font-size: 1.2rem;
   width: 100%;
   height: 80px;
@@ -185,7 +187,7 @@ html {
     font-size: 1.6rem;
   }
 
-  
+}
 
   /* tablets media query */
   @media screen and (max-width: 700px) {
@@ -213,7 +215,7 @@ html {
     .fontIcons {
       position: relative;
       font-size: 1.5rem;
-      bottom: 25px;
+      bottom: 7px;
     }
   }
 
@@ -230,5 +232,28 @@ html {
     .front-end-Wrapper {
       display: block;
     }
+
+    .connections-div{
+      position: relative;
+      bottom: 19px !important;
+    }
+
+    .group-img img{
+      width: 85%;
+    }
+
+    .group-img p{
+      position: relative;
+      background-color: white;
+      width: 80%;
+      font-size: 16px;
+      padding: 10px;
+      bottom: 20px;
+      border-radius:5px;
+      box-shadow: 1px 2px 2px rgb(231, 229, 229);
+    }
+    
+
+
   }
-}
+
