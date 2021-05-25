@@ -3,6 +3,7 @@ import React from "react"
 /*import { Router } from "react-router";*/
 import './App.css';
 import About from "./Component/About/About"
+import Dashboard from "./Component/Dashboard/Dashboard";
 
 
 function App() {
@@ -11,8 +12,8 @@ function App() {
     
     <div className="App">
       
-      
-     <About />
+      <Dashboard/>
+      {/* <About />  */}
     </div>
   );
 }

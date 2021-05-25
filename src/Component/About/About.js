@@ -3,8 +3,9 @@ import FrontEndTeam from "./Frontend"
 import Group from "./Group"
 import TeamInfo from "./TeamMembers"
 import Navbar from "./Navbar/Navbar"; 
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Card from "../Card/card.js";
+import Dashbaord from "../Dashboard/Dashboard"
 
 
 
@@ -17,6 +18,9 @@ const About = () => {
         <div className="About">
         <Router>
       <Navbar/>
+      <Switch>
+          <Route path="/" component ={Dashbaord} exact><Dashbaord/></Route> 
+      </Switch>
       </Router>
 
 
