@@ -1,0 +1,134 @@
+
+.UploadWrapper{
+    background-color: rgb(226, 224, 224);
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+    padding: 20px;
+}
+
+.titleDiv{
+    border-bottom:solid 1px black;
+    height:60px;
+}
+
+.titleDiv h3{
+    position: relative;
+    height:0;
+    background-color: red;
+    vertical-align:middle;
+    top:25px;
+    left:10px;
+    font-size:1.6rem;
+}
+
+.dropDown-div{
+    width: 90%;
+    /* background-color:rgb(248, 168, 168); */
+}
+
+.dropDown-div div{
+    position: relative;
+    top:50px;
+    left:20px;
+    width:100%;
+}
+
+.Dropdown-group{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:60px;
+}
+
+
+.dropDown-div .select-div > select{
+    width:100%;
+    padding:10px 7px 10px 7px;
+    font-size:1.1rem;
+    cursor:pointer;
+    outline:none;
+    border:solid 1px rgb(92, 92, 92);
+}
+
+.div-title{
+    position: relative;
+   font-size:1.3rem;
+   margin-bottom:5px;
+   display:flex;
+   
+}
+
+.div-title p{
+    position:absolute;
+    right: 0;
+    cursor:pointer;
+}
+
+
+.Location-Incharge{
+    display: grid;
+    grid-template-columns:1fr 1fr;
+     width:102%;
+     margin-top:50px;
+}
+
+
+.file-div{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:60px;
+    position:relative;
+    width:97%;
+    font-size: 1.2rem;
+    top:110px;
+    margin:auto;
+
+}
+
+.file-div input{
+    width: 100%;
+    padding: 10px;
+    border: solid 1px black;
+    cursor: pointer;
+    font-size: 1.1rem;
+    background-color:white;
+}
+
+.file-input h4{
+    margin-bottom: 5px;
+}
+
+.file-input{
+    width:100%;
+    /* background-color:white; */
+}
+
+.download-btn-div{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    position:relative;
+    width: 97%;
+    height: 50px;
+    top:160px;
+    margin:auto;
+}
+
+.download-btn-div button{
+    padding: 10px 15px 10px 15px;
+    float: right;
+    margin:0px 10px;
+    font-size:1.1rem;
+    color:white;
+    background-color: rgb(34, 33, 33);
+    outline: none;
+    border:solid 1px rgb(104, 101, 101);
+    border-radius:3px;
+}
+
+.download-btn-div p{
+    color: rgb(216, 6, 6);
+}
+
+#btn-upload{
+    background-color:rgba(252, 96, 21, 1);
+}
