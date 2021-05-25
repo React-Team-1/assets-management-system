@@ -3,8 +3,8 @@ import FrontEndTeam from "./Frontend"
 import Group from "./Group"
 import TeamInfo from "./TeamMembers"
 import Navbar from "./Navbar/Navbar"; 
-import { BrowserRouter as Router} from 'react-router-dom';
 import Card from "../Card/card.js";
+import FooterDiv from "./Footer";
 
 
 
@@ -15,9 +15,7 @@ const About = () => {
         
         
         <div className="About">
-        <Router>
-      <Navbar/>
-      </Router>
+         <Navbar />
 
 
 
@@ -48,9 +46,11 @@ const About = () => {
                 </div>
             </div>
             
-            <div className="footer">
-                <p>Copyright 2021</p>
-            </div>
+              <div>
+              <FooterDiv/>
+              </div>
+          
+    
         </div>
     )
 }
