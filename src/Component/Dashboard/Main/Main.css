@@ -5,7 +5,7 @@ main {
 }
 
 .main_container {
-    padding: 20px 35px;
+    padding: 20px;
 }
 
 .main_title{
@@ -56,6 +56,10 @@ main {
     background: #004680;
 }
 
+i{
+    color: rgb(212, 207, 207);
+}
+
 #card3{
     background: #daa000;
 }
@@ -83,18 +87,28 @@ main {
 }
 
 
+.charts{
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    top: 20px;
+}
+
 
 .charts_left{
-    width: 700px;
+    /* width: 700px; */
+
 }
 
 
 .charts_left {
     padding: 25px;
-    margin-left:150px;
+    /* margin-left:150px; */
     border-radius: 5px;
     background: #ffffff;
-    box-shadow: 5px 5px 13px #c2c2c2, -5px -5px 13px #c2c2c2;
+    box-shadow: 5px 5px 13px #d4d0d0, -5px -5px 13px #e9e3e3;
     
     
 }
@@ -127,7 +141,7 @@ main {
     padding: 25px;
     border-radius: 5px;
     background: #ffffff;
-    box-shadow: 5px 5px 13px #c2c2c2, -5px -5px 13px #c2c2c2;
+    box-shadow: 5px 5px 13px #d4d0d0, -5px -5px 13px #e9e3e3;
 }
 
 .charts_right_title{
@@ -158,15 +172,22 @@ main {
     margin-top: 30px;
 }
 
-.card1 {
+.card1{
     background: #d1ecf1;
     color: #35a4ba;
     text-align: center;
     padding: 25px;
     border-radius: 5px;
-    font-size: 14px;
+  
 }
 
+
+
+.card1 p,.card2 p,.card3 p,.card4 p{
+   font-size: 26px;
+   font-weight: 500;
+   font-weight: bold;
+}
 .card2 {
     background: #d2f9ee;
     color: #38e1b0;
@@ -194,16 +215,23 @@ main {
     font-size: 14px;
 }   
 
-@media only screen and (max-width: 855px) {
+@media  screen and (max-width: 855px) {
     .main_cards {
+        width: 100%;
         grid-template-columns: 1fr;
         gap: 10px;
         margin-bottom: 0;
     }
 
+    .main_container {
+        padding: 0;
+    }
+
     .charts{
         grid-template-columns: 1fr;
         margin-top: 30px;
+        
+        
     }
 
     

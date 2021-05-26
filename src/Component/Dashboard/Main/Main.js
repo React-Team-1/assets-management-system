@@ -64,7 +64,7 @@ const Main = () => {
                             <i class="fa fa-thumbtack"></i>
                         </div>
                         <Chart/>
-                    </div><br></br>
+                    </div>
 
                     
                    
@@ -83,7 +83,7 @@ const Main = () => {
                             </div>
 
                             <div className="card2">
-                                <h1>Service Center Assets</h1>
+                                <h1>Service Center </h1>
                                 <p>100</p>
                             </div>
 

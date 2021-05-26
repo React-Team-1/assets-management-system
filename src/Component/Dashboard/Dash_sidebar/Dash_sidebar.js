@@ -2,6 +2,7 @@ import React from 'react'
 import 'font-awesome/css/font-awesome.min.css';
 import "./Dash_sidebar.css";
 import logo from "../Assets/logo.png";
+import {Link} from "react-router-dom"
 
 const Dash_sidebar = ({ sidebarOpen, closeSidebar }) => {
     return (
@@ -9,7 +10,7 @@ const Dash_sidebar = ({ sidebarOpen, closeSidebar }) => {
             <div className="sidebar_title">
             <div className="sidebar_img">
                 <img src={logo} alt="logo"/>
-                <h1>Asset Management System</h1>
+                <h1>ASM</h1>
             </div>
             <i className="fa fa-times"
             id="sidebarIcon"
@@ -19,8 +20,8 @@ const Dash_sidebar = ({ sidebarOpen, closeSidebar }) => {
 
             <div className="sidebar_menu">
                 <div className="sidebar_link active_menu_link">
-                    <i className="fa fa-home text-green"></i>
-                    <a href="#">Dashboard</a>
+                    <i className="fa fa-home text-black"></i>
+                    <Link to="">Dashboard</Link>
                 </div>
                 <h2>AMS</h2>
                 <div className="sidebar_link">
@@ -30,12 +31,12 @@ const Dash_sidebar = ({ sidebarOpen, closeSidebar }) => {
 
                 <div className="sidebar_link">
                     <i className="fa fa-building-o text-green"></i>
-                    <a href="#">Stores</a>
+                    <Link to="/Store">Store</Link>
                 </div>
 
                 <div className="sidebar_link">
                     <i className="fa fa-bar-chart text-green"></i>
-                    <a href="#">Inventory</a>
+                    <Link to="/Inventory">Inventory</Link>
                 </div>
 
                 <div className="sidebar_link">

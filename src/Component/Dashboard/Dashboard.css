@@ -71,7 +71,7 @@ body {
     "sidebar main main main";
 }
 
-@media only screen and (max-width: 978px){
+@media screen and (max-width: 978px){
     .container{
         grid-template-columns: 1fr;
         grid-template-rows: 0.2fr 3fr;
