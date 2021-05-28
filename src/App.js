@@ -9,7 +9,8 @@ import AddCategory from "./Component/UploadItems/AddCategory/AddCategory"
 import Inventory from "./Component/Inventory/Inventory"
 import Store from "./Component/Store/Store"
 import Dashboard from "./Component/Dashboard/Dashboard"
-import AssignAssets from "./Component/AssignAssets/AssignAssets"
+import Landing from "./Component/LandingPage/LandingPage"
+
 
 
 
@@ -25,8 +26,13 @@ function App() {
                   <Route path="/About" component={About}/>
                     <Route exact path="/Inventory"  component={Inventory}/>
                     <Route exact path="/Store"  component={Store}/>
+                    <Route exact path="/UploadItems" component={UploadItems}/>
                   {/* <Route path="/EditItems" component={EditItems}/>*/}
-              </Switch> 
+              </Switch>
+
+             
+
+             
 
                   
                   
