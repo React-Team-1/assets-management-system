@@ -9,6 +9,7 @@ import SearchCriteria from "./SearchCriteria"
 import SearchComponent from './SearchComponent';
 import Footer from '../About/Footer';
 import Navbar from "../About/Navbar/Navbar"
+import {Link} from "react-router-dom"
 
 
 
@@ -27,8 +28,8 @@ export default function Inventory() {
 
                   <div className="Upload-addDiv">
 
-                  <a href="#">Add NewItem</a>
-                  <a href="#">Upload Item</a>
+                  <Link to="#">Add NewItem</Link>
+                  <Link to="/UploadItems">Upload Item</Link>
 
                       
                   </div>    
