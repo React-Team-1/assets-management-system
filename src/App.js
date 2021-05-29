@@ -10,8 +10,11 @@ import Inventory from "./Component/Inventory/Inventory"
 import Store from "./Component/Store/Store"
 import Dashboard from "./Component/Dashboard/Dashboard"
 import Landing from "./Component/LandingPage/LandingPage"
+import ProtectedRoute from "./ProtectedRoute"
+import ErrorPage from "./Component/ErrorPage";
 
 
+export let userState = false;
 
 
 function App() {
@@ -19,16 +22,23 @@ function App() {
     <Router>
           <div className="App">
           
-
-              <Switch>
+ 
+               <Switch>
                 
-                  <Route exact path="/"  component={Dashboard}/>
-                  <Route path="/About" component={About}/>
-                    <Route exact path="/Inventory"  component={Inventory}/>
-                    <Route exact path="/Store"  component={Store}/>
-                    <Route exact path="/UploadItems" component={UploadItems}/>
-                  {/* <Route path="/EditItems" component={EditItems}/>*/}
-              </Switch>
+                      <Route exact path="/" component={Landing}/>
+                        <ProtectedRoute
+                         exact 
+                         path="/Dashboard"  
+                         component={Dashboard}/>
+                      <ProtectedRoute path="/About" component={About}/>
+                      <ProtectedRoute exact path="/Inventory"  component={Inventory}/>
+                      <ProtectedRoute exact path="/Store"  component={Store}/>
+                      <ProtectedRoute exact path="/UploadItems" component={UploadItems}/>
+                      <ProtectedRoute path="*" component={ErrorPage}/>
+                    {/* <Route path="/EditItems" component={EditItems}/>*/}
+              </Switch> 
+
+       
 
              
 
