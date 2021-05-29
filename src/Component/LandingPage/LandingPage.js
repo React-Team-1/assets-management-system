@@ -5,14 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import "./Landingpage.css"
 import Axios from "axios"
+import Auth from "../../Auth"
+import {useHistory} from "react-router-dom"
+import App from "../../App"
+import { faWindows } from "@fortawesome/free-brands-svg-icons"
 
 const Login = ({
     values,
     errors,
     touched,
-    isSubmitting
+    isSubmitting,
 }) => {
+ 
+
     let userIcon = <FontAwesomeIcon icon={faUser} />
+
     return (
         <div className="main-container">
             <div className="left-container">
@@ -23,8 +30,8 @@ const Login = ({
                     <div>
                         <p className="userIcon">{userIcon}</p>
                         <label>Admin Login</label>
-                        <Field className="input" type="text" name="email" placeholder="ID Number" />
-                        {touched.email && errors.email && <p className="error-message">{errors.email}</p>}
+                        <Field className="input" type="text" name="username" placeholder="ID Number" />
+                        {touched.username && errors.username && <p className="error-message">{errors.username}</p>}
                     </div>
                     <div>
                         <Field className="input" type="password" name="password" placeholder="Password" />
@@ -39,40 +46,40 @@ const Login = ({
 } 
 
 const LandingPage = withFormik({
-    mapPropsToValues({ email, password }) {
+
+    mapPropsToValues({ username, password }) {
         return {
-            email: email || '',
+            username: username || '',
             password: password || ''
         }
     },
     validationSchema: Yup.object().shape({
         // email: Yup.string().email().required(),
-        email:Yup.string().required(),
+        username:Yup.string().required(),
         password: Yup.string().min(4).required()
     }),
-    handleSubmit(values, { resetForm }) {
+    handleSubmit(values, {props, resetForm }) {
+     
         setTimeout(() => {
-      
-
-            // Axios({
-            //     Headers:{'content-Type':'application/json'},
-            //     URL:'https://rocky-falls-71050.herokuapp.com/login',
-            //     FormData:values
-            // }).then((response)=>{
-            //     console.log(response.FormData)
-            // })
-            Axios({
-                method:'post',
-                headers: {'content-Type':'application/json'},
-                url:'https://rocky-falls-71050.herokuapp.com/login',
-                data:values
-            }).then(response=>{
+            
+            Axios.post("https://rocky-falls-71050.herokuapp.com/login",values,{headers: {'content-Type':'application/json'}}).then((response)=>{
                 console.log(response.data)
+                 if(response.status === 200){
+                    localStorage.setItem('token',response.data.token);
+                    Auth.login(()=>{
+                        props.history.push("/Dashboard")
+                    })
+                    
+                 }
+            }).catch((e)=>{
+                console.log(e)
             })
 
             resetForm()
             // setSubmitting(false)
         }, 1000)
+
+       
     }
 })(Login)
 

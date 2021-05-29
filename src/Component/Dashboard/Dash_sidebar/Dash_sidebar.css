@@ -7,6 +7,10 @@
     transition: all 0.5s;
 }
 
+#logoutButton{
+    cursor: pointer;
+}
+
 .sidebar_title{
     display: flex;
     justify-content: space-between;

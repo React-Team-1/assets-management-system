@@ -3,8 +3,11 @@ import 'font-awesome/css/font-awesome.min.css';
 import "./Dash_sidebar.css";
 import logo from "../Assets/logo.png";
 import {Link} from "react-router-dom"
+import auth from "../../../Auth"
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-const Dash_sidebar = ({ sidebarOpen, closeSidebar }) => {
+const Dash_sidebar = ({ sidebarOpen, closeSidebar,props }) => {
+    let history = useHistory();
     return (
         <div className={sidebarOpen ? "sidebar_responsive" : ""} id="sidebar">
             <div className="sidebar_title">
@@ -47,7 +50,12 @@ const Dash_sidebar = ({ sidebarOpen, closeSidebar }) => {
                 <h2>LEAVE</h2>
                 <div className="sidebar_logout">
                     <i className="fa fa-sign-out"></i>
-                    <a href="#">Sign out</a>
+                    <a id="logoutButton" onClick={()=>{
+                        auth.logOut(()=>{
+                            // let history = useHistory();
+                           history.push("/")
+                        })
+                    }}>Logout</a>
                 </div>
 
 
