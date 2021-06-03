@@ -4,7 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import {faLinkedinIn} from '@fortawesome/free-brands-svg-icons'
 
 
-const frontEndTeam =(props)=>{
+const Team =(props)=>{
   let element = <FontAwesomeIcon icon={faEnvelope} />
   let element2 = <FontAwesomeIcon icon={faLinkedinIn} />
   return(
@@ -23,4 +23,4 @@ const frontEndTeam =(props)=>{
 }
 
 
-export default frontEndTeam;
+export default Team;
