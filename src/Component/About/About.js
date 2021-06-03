@@ -1,16 +1,16 @@
 import React from "react"
-import FrontEndTeam from "./Frontend"
+import Team from "./Frontend"
 import Group from "./Group"
-import TeamInfo from "./TeamMembers"
 import Navbar from "./Navbar/Navbar"; 
 import Card from "../Card/card.js";
 import FooterDiv from "./Footer";
+import {connect} from "react-redux"
 
 
 
 
-
-const About = () => {
+const About = (props) => {
+   
     return (
         
         
@@ -35,14 +35,14 @@ const About = () => {
             <div className="Team-divs-style">
                 <h2 id="front-end-title">FrontEnd Teams</h2>
                 <div className="front-end-Wrapper">
-                    {TeamInfo.Frontend.map(teams)}
+                    {props.frontend.map(teams)}
                 </div>
             </div>
 
             <div>
                 <h2 id="front-end-title">BackEnd Teams</h2>
                 <div className="front-end-Wrapper">
-                    {TeamInfo.Backend.map(teams)}
+                    {props.backend.map(teams)}
                 </div>
             </div>
             
@@ -56,21 +56,27 @@ const About = () => {
 }
 
 
-function teams(member) {
-
+const teams = member => {
     return (
-        <FrontEndTeam
+        <Team
             key={member.teamId}
             teamName={member.pName}
             personImage={member.pImage}
             track={member.track}>
 
 
-        </FrontEndTeam>
+        </Team>
 
     )
 
 }
 
 
-export default About
+const mapStateToProps =(state)=>{
+         return{
+             frontend: state.frontend,
+             backend: state.backend
+         }
+}
+
+export default connect(mapStateToProps)(About)
