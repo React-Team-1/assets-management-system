@@ -74,8 +74,8 @@ const teams = member => {
 
 const mapStateToProps =(state)=>{
          return{
-             frontend: state.frontend,
-             backend: state.backend
+             frontend: state.team.frontend,
+             backend: state.team.backend
          }
 }
 

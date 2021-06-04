@@ -1,11 +1,13 @@
-import React from "react"
-import { Field, Form, withFormik, } from "formik"
+import React,{useState} from "react"
+import {  Field, Form, withFormik, } from "formik"
 import * as Yup from "yup"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import "./Landingpage.css"
 import Axios from "axios"
 import Auth from "../../Auth"
+import 'core-js/fn/promise/finally'
+import { connect } from "react-redux"
 import {useHistory} from "react-router-dom"
 import App from "../../App"
 import { faWindows } from "@fortawesome/free-brands-svg-icons"
@@ -15,6 +17,7 @@ const Login = ({
     errors,
     touched,
     isSubmitting,
+   
 }) => {
  
 
@@ -37,7 +40,7 @@ const Login = ({
                         <Field className="input" type="password" name="password" placeholder="Password" />
                         {touched.password && errors.password && <p className="error-message">{errors.password}</p>}
                     </div>
-                    <button type="submit" disabled={isSubmitting}>Login</button>
+                    <button type="submit" disabled={isSubmitting} >Login</button>
                 </Form>
             </div>
         </div>
@@ -58,6 +61,8 @@ const LandingPage = withFormik({
         username:Yup.string().required(),
         password: Yup.string().min(4).required()
     }),
+
+
     handleSubmit(values, {props, resetForm }) {
      
         setTimeout(() => {
@@ -66,9 +71,15 @@ const LandingPage = withFormik({
                 console.log(response.data)
                  if(response.status === 200){
                     localStorage.setItem('token',response.data.token);
-                    Auth.login(()=>{
+                     
+                    
+                    //  props.onValidUser();
+                    //  let user = new validate();
+                    console.log("Executed")
+                
+                Auth.login(()=>{
                         props.history.push("/Dashboard")
-                    })
+                    });
                     
                  }
             }).catch((e)=>{
@@ -80,7 +91,10 @@ const LandingPage = withFormik({
         }, 1000)
 
        
-    }
+    },
+ 
 })(Login)
+
+
 
 export default LandingPage;

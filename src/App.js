@@ -23,7 +23,7 @@ function App() {
           <div className="App">
           
  
-               {/* <Switch>
+               <Switch>
                 
                       <Route exact path="/" component={Landing}/>
                         <ProtectedRoute
@@ -35,10 +35,11 @@ function App() {
                       <ProtectedRoute exact path="/Store"  component={Store}/>
                       <ProtectedRoute exact path="/UploadItems" component={UploadItems}/>
                       <ProtectedRoute path="*" component={ErrorPage}/>
-                    {/* <Route path="/EditItems" component={EditItems}/>/}
-              </Switch>  */}
+                    {/* <Route path="/EditItems" component={EditItems}/>*/}
+              </Switch> 
 
-              <About/>
+
+            
 
        
 
