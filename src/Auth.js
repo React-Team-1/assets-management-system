@@ -51,19 +51,6 @@ class Auth  {
 }
 
 
-// const mapStateToProp =(state)=>{
-//     console.log(state.user.auth)
-//       return{
-//            auth: state.user.auth
-//       }
-// }
-
-
-// const mapDispatchToProps =(dispatch) =>{
-//     return({
-//        onValidUser: () => {dispatch({type: "USERSTATE" })}
-//        })   
-// }
 
 
 
