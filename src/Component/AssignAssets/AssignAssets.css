@@ -1,0 +1,38 @@
+.assignDiv{
+    width:500px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    text-align: center;
+    padding:20px;
+    border:1px solid rgb(209, 204, 204);
+    transform: translate(-50%,-50%);
+}
+
+.assignDiv input{
+    width:200px;
+    border-radius:25px;
+    padding:10px;
+    outline: none;
+    border:1px solid rgb(133, 130, 130);
+   
+
+}
+
+.middle{
+    margin:50px 0;
+    display:flex;
+    justify-content:space-around;
+}
+
+.assignDiv button{
+    border-radius:25px;
+    border:none;
+    width:100px;
+    padding:10px;
+    text-align: center;
+    background:orangered;
+    margin-bottom:20px;
+    color:white;
+}
+

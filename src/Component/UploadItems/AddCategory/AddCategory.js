@@ -3,7 +3,8 @@ import "./AddCategory.css"
 
 export default function AddCategory() {
     return (
-        <div  className="catdiv">
+        
+        <div  className="catdiv hide">
             <h2>Add Category</h2>
             <div className="input-area">
                 <input type='text' id="input-area-txt" placeholder="Category Name"/><br/>
@@ -13,7 +14,7 @@ export default function AddCategory() {
 
         </div>
           
-          
+      
 
     )
 }
