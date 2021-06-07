@@ -1,0 +1,41 @@
+.StoreWrapper{
+    width: 90%;
+    margin: auto;
+    min-height: 100%;
+}
+
+.searchDiv{
+    position: relative;
+    width: 50%;
+    margin: 20px auto;
+    top: 1.25rem;
+}
+
+.SearchItemCriteria{
+    position: relative;
+   width: 90%;
+   height: 50px;
+   margin: auto;
+   top: 4.875rem;
+}
+
+.Result{
+    margin-top: 220px;
+    margin-bottom: 120px;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 420px) {
+    .Result{
+         margin:120px 0;
+    }
+}
