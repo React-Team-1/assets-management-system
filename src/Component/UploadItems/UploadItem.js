@@ -11,7 +11,8 @@ const UploadItems = () => {
 
     return (
         <div className="parentContainer">
-            <AddCategory />
+          <Backdrop/>
+            <AddCategory  click={closePopup} />
             
             <div id="blur" className="UploadWrapper">
                 {/*<Backdrop/>*/}
@@ -62,17 +63,39 @@ const UploadItems = () => {
 
 const addCatgory = () => {
 
-    let blur = document.querySelector("#blur");
+    // // let blur = document.querySelector("#blur");
+    // let catdiv = document.querySelector(".catdiv");
+    // if (catdiv.classList.contains("hide")) {
+    //     catdiv.classList.remove("hide")
+    // }
+    // else {
+    //     catdiv.classList.add("hide");
+    // }
+
+    // blur.classList.toggle("blurBD")
+
+     // let blur = document.querySelector("#blur");
+     let backDrop = document.querySelector(".backDrop");
+     let catdiv = document.querySelector(".catdiv");
+     if (backDrop.classList.contains("hide")) {
+         backDrop.classList.remove("hide")
+         catdiv.classList.remove("hide")
+     }
+     else {
+         catdiv.classList.add("hide");
+     }
+ 
+    //  blur.classList.toggle("blurBD")
+
+}
+
+const closePopup = ()=>{
+    let backDrop = document.querySelector(".backDrop");
     let catdiv = document.querySelector(".catdiv");
-    if (catdiv.classList.contains("hide")) {
-        catdiv.classList.remove("hide")
-    }
-    else {
+    if(!catdiv.classList.contains("hide")){
         catdiv.classList.add("hide");
+        backDrop.classList.add("hide")
     }
-
-    blur.classList.toggle("blurBD")
-
 }
 
 

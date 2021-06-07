@@ -1,8 +1,13 @@
 .backDrop{
-    width: 84.7vw;
-    height: 100vh;
+    width: 100%;
     position: absolute;
-    background-color: burlywood;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
     z-index: 1;
     
+}
+
+
+.hide{
+    display: none;
 }

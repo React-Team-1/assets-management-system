@@ -1,11 +1,12 @@
 
 .parentContainer{
+    position: relative;
     padding: 0;
   }
 .UploadWrapper{
-    position: relative;
-    background-color: rgb(226, 224, 224);
+    background-color: rgb(252, 252, 252);
     width: 85%;
+    height: 100vh;
     margin: auto;
     /* padding: 20px; */
 }
@@ -29,7 +30,7 @@
     vertical-align:middle;
     top:25px;
     left:10px;
-    font-size:1.6rem;
+    font-size:1.2rem;
 }
 
 .dropDown-div{
@@ -39,7 +40,7 @@
 
 .dropDown-div div{
     position: relative;
-    top:50px;
+    top:30px;
     left:20px;
     width:100%;
 }
@@ -53,8 +54,8 @@
 
 .dropDown-div .select-div > select{
     width:100%;
-    padding:10px 7px 10px 7px;
-    font-size:1.1rem;
+    padding:7px 7px 10px 7px;
+    font-size:1rem;
     cursor:pointer;
     outline:none;
     border:solid 1px rgb(92, 92, 92);
@@ -70,6 +71,7 @@
 
 .div-title p{
     position:absolute;
+    font-size: 1.1rem;
     right: 0;
     cursor:pointer;
 }
@@ -91,7 +93,7 @@
     width:97%;
     font-size: 1.2rem;
    
-    margin:110px auto 0px auto;
+    margin:60px auto 0px auto;
 
 }
 
@@ -102,6 +104,10 @@
     cursor: pointer;
     font-size: 1.1rem;
     background-color:white;
+}
+
+h4{
+    font-size: 1.1rem;
 }
 
 .file-input h4{
