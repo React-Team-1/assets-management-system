@@ -41,7 +41,7 @@ function App() {
                     {/* <Route path="/EditItems" component={EditItems}/>/}
               </Switch>  */}
 
-              <UploadItems/>
+              <Inventory/>
 
               
               

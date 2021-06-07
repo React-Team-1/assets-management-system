@@ -11,6 +11,8 @@ import Footer from '../About/Footer';
 import Navbar from "../About/Navbar/Navbar"
 import {Link} from "react-router-dom"
 import { connect } from 'react-redux'
+import UploadItems from '../UploadItems/UploadItem'
+import  BackDrop from './../Backdrop/backDrop'
 
 
 
@@ -37,7 +39,7 @@ class Inventory extends Component {
                       <div className="Upload-addDiv">
     
                       <Link to="#">Add NewItem</Link>
-                      <Link to="/UploadItems">Upload Item</Link>
+                      <Link to="/UploadItems" onClick={this.showBackDrop}>Upload Item</Link>
     
                           
                       </div>    
@@ -111,6 +113,8 @@ class Inventory extends Component {
 
     )
    }
+
+
      
 
 }

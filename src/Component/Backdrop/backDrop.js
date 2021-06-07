@@ -3,6 +3,6 @@ import "./backDrop.css"
 
 export default function BackDrop() {
     return (
-        <div className="backDrop hide"></div>
+        <div className="backDrop "></div>
     )
 }
