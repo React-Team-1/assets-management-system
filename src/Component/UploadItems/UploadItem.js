@@ -10,7 +10,7 @@ import Backdrop from "../Backdrop/backDrop.js"
 const UploadItems = () => {
 
     return (
-        <div className="parentContainer hide">
+        <div className="parentContainer">
           <Backdrop/>
             <AddCategory  click={closePopup} />
             
@@ -91,7 +91,7 @@ const addCatgory = () => {
 
 const closePopup = ()=>{
     let backDrop = document.querySelector(".backDrop");
-    let catdiv = document.querySelector(".cat .div");
+    let catdiv = document.querySelector(".catdiv");
     if(!catdiv.classList.contains("hide")){
         catdiv.classList.add("hide");
         backDrop.classList.add("hide")

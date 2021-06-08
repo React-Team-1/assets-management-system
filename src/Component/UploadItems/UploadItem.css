@@ -1,13 +1,13 @@
 
 .parentContainer{
     padding: 0;
+   
   }
 .UploadWrapper{
-    background-color: rgb(252, 252, 252);
+    background-color:white;
     width: 85%;
     height: 100vh;
     margin: auto;
-    /* padding: 20px; */
 }
 
 .blurBD{

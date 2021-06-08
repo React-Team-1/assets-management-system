@@ -23,7 +23,7 @@ const Dashboard = () => {
     }
   
     if(Auth.isAuthenticated){
-        return <div className='container'>
+        return <div className='Container'>
             <Dash_Navbar sidebarOpen ={sidebarOpen} openSidebar={openSidebar}/>
             <Main/>
             <Dash_sidebar sidebarOpen ={sidebarOpen} closeSidebar={closeSidebar} />
