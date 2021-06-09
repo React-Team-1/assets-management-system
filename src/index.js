@@ -8,11 +8,13 @@ import {Provider} from "react-redux"
 import teamsReducer  from "./store/reducers/teams"
 import  userReducer from "./store/reducers/user"
 import  assetsReducer from "./store/reducers/assets"
+import dashBoardReducer from "./store/reducers/dashboardData"
 
 const rootReducer = combineReducers({
       team : teamsReducer,
       user :userReducer,
-      assets : assetsReducer
+      assets : assetsReducer,
+      dashboardData: dashBoardReducer
 })
 
  const store = createStore(rootReducer)
