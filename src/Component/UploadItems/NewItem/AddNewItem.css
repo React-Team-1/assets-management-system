@@ -1,0 +1,79 @@
+.pic-container {
+    width: 350px;
+    height: 250px;
+    margin: auto;
+    margin-top: 20px;
+}
+.pic-container input {
+    margin: 20px;
+    display: none;
+}
+
+.pic-container button {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.pic-container span {
+    font-size: large;
+    border: 1px solid whitesmoke;
+    background-color: white;
+    z-index: 1;
+}
+
+#imgIcon {
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    padding: 5px;
+}
+
+.input-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.textarea-container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.textarea-container div {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    margin-left: 25px;
+}
+
+.textarea-container label {
+    position: relative;
+    left: 0;
+}
+
+textarea {
+    border: 1px solid rgb(92, 92, 92);
+    padding: 10px;
+    width: 90%;
+    resize: none;
+}
+
+.buttons {
+    text-align: right;
+}
+
+.buttons button {
+    margin: 20px 20px 0px 0px;
+    padding: 5px 20px;
+    font-size: small;
+    outline: none;
+    background-color: rgb(34, 33, 33);
+    color: white;
+    border: 1px solid;
+}
+
+.buttons button:nth-child(2n) {
+    background-color: rgb(245, 160, 80);    
+}
+

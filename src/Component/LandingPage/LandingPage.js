@@ -58,6 +58,7 @@ const LandingPage = withFormik({
         username:Yup.string().required(),
         password: Yup.string().min(4).required()
     }),
+    
     handleSubmit(values, {props, resetForm }) {
      
         setTimeout(() => {
