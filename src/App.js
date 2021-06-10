@@ -11,7 +11,7 @@ import Dashboard from "./Component/Dashboard/Dashboard"
 import Landing from "./Component/LandingPage/LandingPage"
 import ProtectedRoute from "./ProtectedRoute"
 import ErrorPage from "./Component/ErrorPage";
-import EditItems from "./Component/Store/EditItems/EditItems"
+import ViewItem from "./Component/Store/ViewItem/ViewItem"
 
 
 
@@ -38,10 +38,15 @@ function App() {
                       <ProtectedRoute exact path="/Store"  component={Store}/>
                       <ProtectedRoute exact path="/UploadItems" component={UploadItems}/>
                       <ProtectedRoute path="*" component={ErrorPage}/>
-                    {/* <Route path="/EditItems" component={EditItems}/>/}
+                      <ProtectedRoute path="*" component={ViewItem}/>
+                    {/* <Route path="/ViewItem" component={ViewItem}/>/}
               </Switch>  */}
 
-              <Dashboard/>
+              <Store/>
+
+              
+
+            
 
 
                   

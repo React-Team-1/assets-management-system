@@ -8,8 +8,8 @@ const initialState = {
             assetBrand: "Hp",
             assetCategory: "Electronics",
             assetOwner: "Amalitech",
-            assetsLocation: "Ghana Operation",
-            area: "store"
+            status: "Status",
+            stat: "In-store"
         },
 
         {
@@ -20,8 +20,8 @@ const initialState = {
             assetBrand: "Hp",
             assetCategory: "Electronics",
             assetOwner: "Amalitech",
-            assetsLocation: "Ghana Operation",
-            area: "store"
+            status: "Status",
+            stat: "In-use"
         },
 
 
@@ -33,8 +33,8 @@ const initialState = {
             assetBrand: "Hp",
             assetCategory: "Electronics",
             assetOwner: "Amalitech",
-            assetsLocation: "Ghana Operation",
-            area: "store"
+            status: "Status",
+            stat: "In-use"
         },
     
    ]

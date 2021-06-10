@@ -106,8 +106,8 @@ class Inventory extends Component {
         assetBrand ={asset.assetBrand}
         assetCategory= {asset.Category}
         assetOwner={asset.assetOwner}
-        assetsLocation= {asset.assetsLocation}
-        area= {asset.area}
+        Status= {asset.status}
+        stat= {asset.stat}
 
     /> 
 

@@ -29,12 +29,12 @@ class Store extends Component{
 
       
 
-       <div className="Result">
-           
+       <div className="item-Result">
+
            {
              this.props.asset.map(this.displayAssetsInStore)
            }
-
+      
        </div>
             
 
@@ -60,8 +60,8 @@ class Store extends Component{
         assetBrand ={asset.assetBrand}
         assetCategory= {asset.Category}
         assetOwner={asset.assetOwner}
-        assetsLocation= {asset.assetsLocation}
-        area= {asset.area}
+        Status= {asset.status}
+        stat= {asset.stat}
 
     /> 
 
