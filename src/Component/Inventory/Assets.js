@@ -17,7 +17,7 @@ export default function Assets(props) {
                </Col>
 
                <Col  xs={6} md={2} className="item-colums">
-                    <img src={props.assetImg} alt="speaker"/>
+                    <img src={props.assetImg} alt="Assets picture"/>
                </Col>
 
                <Col  xs={6} md={2} className="item-colums">
@@ -25,17 +25,17 @@ export default function Assets(props) {
                </Col>
 
                <Col  xs={6} md={2} className="item-colums">
-                    <h5 id="">{props.assetBrand}</h5>
+                    <h5 style={{marginLeft:"30px"}} id="">{props.assetBrand}</h5>
                </Col>
 
-                <Col  xs={6} md={2} className="item-colums">
-                    <h5  >{props.assetCategory}</h5>
-                    <h6 id="owner">{props.assetOwner}</h6>
+                <Col  xs={6} md={2} className="item-colums ">
+                    <h5 style={{marginLeft:"30px"}} >{props.assetCategory}</h5>
+                    <h6  style={{marginLeft:"30px"}} id="owner">{props.assetOwner}</h6>
                 </Col>
 
                 <Col  xs={6} md={2} className="item-colums">
-                    <h5 style={{marginLeft:"20px"}}>{props.Status}</h5>
-                    <h6 id="status" >{props.stat}</h6>
+                    <h5 style={{marginLeft:"48px"}}>{props.Status}</h5>
+                    <h6  style={{marginLeft:"30px"}} id="status" >{props.stat}</h6>
                 </Col>
 
 

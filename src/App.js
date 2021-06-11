@@ -42,7 +42,7 @@ function App() {
                     {/* <Route path="/ViewItem" component={ViewItem}/>/}
               </Switch>  */}
 
-              <Store/>
+              <Inventory/>
 
               
 

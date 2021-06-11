@@ -9,7 +9,7 @@ const Team =(props)=>{
   let element2 = <FontAwesomeIcon icon={faLinkedinIn} />
   return(
           <div  className="front-end-Teams-div">
-          <img src={props.personImage}  alt="Amin"/> 
+          <img src={props.personImage}  alt="Front end pictures"/> 
               <div className="details">
               <h3>{props.teamName}</h3>
               <h4 >{props.track}</h4>
