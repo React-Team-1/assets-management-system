@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
-import {createStore,combineReducers} from "redux"
+import {createStore,combineReducers, applyMiddleware,compose} from "redux"
 import {Provider} from "react-redux"
 import teamsReducer  from "./store/reducers/teams"
 import  userReducer from "./store/reducers/user"
 import  assetsReducer from "./store/reducers/assets"
 import dashBoardReducer from "./store/reducers/dashboardData"
+import reduxThunk from "redux-thunk"
+
+
+
+const composeEnhancers =  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
       team : teamsReducer,
@@ -17,7 +22,9 @@ const rootReducer = combineReducers({
       dashboardData: dashBoardReducer
 })
 
- const store = createStore(rootReducer)
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+ const store = createStore(rootReducer,composeEnhancers(applyMiddleware(reduxThunk)) )
 
 
 ReactDOM.render(

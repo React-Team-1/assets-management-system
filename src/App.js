@@ -22,11 +22,11 @@ export let userState = false;
 
 function App() {
   return (
-    //<Router>
+    <Router>
           
           
  
-               {/* <Switch>
+               <Switch>
                 
                       <Route exact path="/" component={Landing}/>
                         <ProtectedRoute
@@ -39,10 +39,9 @@ function App() {
                       <ProtectedRoute exact path="/UploadItems" component={UploadItems}/>
                       <ProtectedRoute path="*" component={ErrorPage}/>
                       <ProtectedRoute path="*" component={ViewItem}/>
-                    {/* <Route path="/ViewItem" component={ViewItem}/>/}
-              </Switch>  */}
+                    {/* <Route path="/ViewItem" component={ViewItem}/>*/}
+              </Switch> 
 
-              <Inventory/>
 
               
 
@@ -52,7 +51,7 @@ function App() {
                   
                   
                  
-          </div>
+         
          
           
     </Router>

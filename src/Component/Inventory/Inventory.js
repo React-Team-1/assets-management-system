@@ -11,10 +11,12 @@ import Footer from '../About/Footer';
 import Navbar from "../About/Navbar/Navbar"
 import {Link} from "react-router-dom"
 import { connect } from 'react-redux'
+import {getAssets} from '../../store/asmActions'
 import UploadItems from '../UploadItems/UploadItem'
 import  BackDrop from './../Backdrop/backDrop'
 import axios from 'axios'
 import { getDefaultNormalizer } from '@testing-library/dom'
+import Loading from '../Spinner/Loading'
 
 
 
@@ -30,10 +32,10 @@ class Inventory extends Component {
      
    }
      
-//    IOS Development and unreal engine
+
 
      render(){
-         console.log(this.state.AssetsHeader)
+        
         let searchIcon = <FontAwesomeIcon icon={faSearch} />
         // let CaretDownIcon = <FontAwesomeIcon icon={faCaretDown} />
         return (
@@ -79,12 +81,14 @@ class Inventory extends Component {
     
                     <div className="result">
                         <div className="result-Item">
-                       {
-                                
-                        
-                            !this.props.assets == "" ? this.props.assets.map(this.displayAssetsInStore) : ""
-                        
-                       }
+                       
+                            <div className="text-center"> 
+                               {!this.props.loading ?  null : <Loading /> }
+                            </div>
+                           
+                           
+                           { !this.props.assets == "" ? this.props.assets.map(this.displayAssetsInStore) : ""}
+                            
 
 
                         
@@ -127,48 +131,26 @@ class Inventory extends Component {
 
 componentDidMount(){
 
-   this.getAssets("https://rocky-falls-71050.herokuapp.com/assets",'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYwYWQxOTY5ZDUwMjRmMDY0ZmFkYjE4ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyeSQxMiR5RUFJWHNXMmR4eThMYzZDcmRLeHVPRjB6SnJ1aGk3RE1kOWtGam9YY0xhS2xiL2g1MGpMcSJ9LCJpYXQiOjE2MjMzMTY4NDl9.C-WYfxP-BLhdGHZL0-pUVahl6EbwR_1eDTXt-2l4hf8')
+   this.props.getAssets();
 
 }
 
-getAssets(url,bearerToken){
-    
-     axios.get(url,
-    { 
-        headers: {
-                    Authorization: bearerToken
-                },
-        }
-    ).then((response)=>{
-
-        if(response.status === 200){
-            // console.log("This is me", response.data.data.length);
-            let returnedValues = response.data.data;
-            // console.log(returnedValues.length)
-            this.props.getAssets(returnedValues);
-        }
-            
-    })
-
 }
-
-
-
-}
-
 
 
 
 
 const mapStateToProps =(state)=>{
     return{
-        assets:state.assets.Instore
+        assets:state.assets.Instore,
+        loading:state.assets.loading
     }
 }
 
 const mapDispatchToProps= dispatch =>{
     return{
-       getAssets: data => dispatch({type:"UPDATE_ASSETS",payload:data})
+    //    getAssets: data => dispatch({type:"UPDATE_ASSETS",payload:data})
+          getAssets: () => dispatch( getAssets() )
     }
 };
 

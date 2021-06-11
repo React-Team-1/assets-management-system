@@ -1,4 +1,7 @@
-const initialState = []
+import * as actionType from "../actions"
+const initialState = {
+     loading:false,
+}
 //     available: [
 //             {
 //             ItemNo: "1",
@@ -44,11 +47,27 @@ const assetsReducer =(state = initialState, action)=>{
     
      switch(action.type){
          
-         case "UPDATE_ASSETS":
+         case actionType.FETCH_ASSETS_REQUEST:
              return{
                  ...state,
-                  Instore:action.payload
+                 loading:true
              }
+            
+         case actionType.FETCH_ASSETS_SUCESS:
+             return{
+                 ...state,
+                  Instore:action.payload,
+                  loading:false
+             }
+        case actionType.FETCH_ASSETS_FAILURE:
+              return{
+                  ...state,
+                  loading:false,
+                  Instore:false,
+                  error:action.payload
+              }
+
+        
 
             default:
                 return state;
