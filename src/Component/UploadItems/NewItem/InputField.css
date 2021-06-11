@@ -1,0 +1,34 @@
+.wrapper-div {
+    width: 90%;
+}
+
+.wrapper-div div{
+    position: relative;
+    top: 50px;
+    left: 20px;
+    width: 100%;
+}
+
+.title-div {
+    position: relative;
+   font-size: 1.3rem;
+   margin-bottom: 5px;
+   display: flex;
+   
+}
+
+.title-div label {
+    position: relative;
+    left: 5px;
+    font-size: medium;
+}
+
+.input-div input {
+    width: 90%;
+    padding: 10px 7px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    outline: none;
+    border: solid 1px rgb(92, 92, 92);
+}

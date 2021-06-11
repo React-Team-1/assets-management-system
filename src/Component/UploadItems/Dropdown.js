@@ -16,6 +16,5 @@ export default function Dropdown(props) {
                 <option>Choose one </option>
             </select>
         </div>
-     </div>
     )
 }

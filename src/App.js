@@ -22,8 +22,8 @@ export let userState = false;
 
 function App() {
   return (
-    <Router>
-          <div className="App">
+    //<Router>
+          
           
  
                {/* <Switch>
