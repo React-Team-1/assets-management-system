@@ -131,7 +131,10 @@ class Inventory extends Component {
 
 componentDidMount(){
 
-   this.props.getAssets();
+    if(typeof this.props.assets === "undefined"){
+        this.props.getAssets();
+    }
+   
 
 }
 

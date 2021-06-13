@@ -35,9 +35,10 @@ export default function Assets(props) {
 
                 <Col  xs={6} md={2} className="item-colums">
                     <h5 style={{marginLeft:"48px"}}>{props.Status}</h5>
-                    <h6  style={{marginLeft:"30px"}} id="status" >{props.stat}</h6>
+                    <h6  onClick={props.click} onMouseOver={props.statusHover} onMouseOut={props.statusHover}  style={{marginLeft:"30px"}} id="status" >{props.stat}</h6>
                 </Col>
-
+                
+              
 
          </Row>
 

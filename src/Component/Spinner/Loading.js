@@ -5,7 +5,7 @@ export default class Loading extends Component {
     render() {
         return (
             
-                <div class="lds-facebook">
+                <div className="lds-facebook">
                 <div></div>
                 <div></div>
                 <div> </div>
