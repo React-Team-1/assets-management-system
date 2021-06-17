@@ -25,10 +25,10 @@
 
 .input-div input {
     width: 90%;
-    padding: 10px 7px;
+    padding: 5px 7px;
     margin-bottom: 15px;
     font-size: 1.1rem;
     cursor: pointer;
     outline: none;
-    border: solid 1px rgb(92, 92, 92);
+    border: solid 1px rgb(211, 210, 210);
 }
