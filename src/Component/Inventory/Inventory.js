@@ -28,6 +28,7 @@ class Inventory extends Component {
        this.state ={
            AssetsHeader:["No/Serial Number","Picture","Assets","Type/Brand","Category/Ownership","Location/Area"]
        }
+
        
      
    }
@@ -107,27 +108,80 @@ class Inventory extends Component {
         )
      }
 
+
+
      
-     displayAssetsInStore(asset,index){
-    let counter = index;
+     checkAssetStatusHandler =  (e) =>{
+    
+        if(e.type === "mouseover"){
+          this.assignAssetTextEventHandler(e)
+         
+        }
+    
+       if(e.type === "mouseout"){
+        this.assignAssetTextEventHandler(e)
+       }
+    
+    
+    }
+    
+    assignAssetTextEventHandler(e){
+      console.log("I was called");
+    
+         if(e.target.innerText === "in-store"){
+             e.target.innerText = "Assign";
+         }else if(e.target.innerText === "Assign"){
+            e.target.innerText = "in-store"
+         }else if(e.target.innerText === "issued"){
+           e.target.innerText = "return"
+         }else if(e.target.innerText === "return"){
+             e.target.innerText = "issued"
+         }
+    
+       
+    }
+  
+  
+    
 
-    return (
-        <Assets 
-        key = {counter++}
-        ItemNo = {counter+". "}
-        serialNumber={asset.serial}
-        assetImg = {'Assets/asetsImage.jpeg'}
-        assetName = {asset.asset_name}
-        assetBrand ={asset.brand}
-        assetCategory= {asset.category}
-        assetOwner={asset.owner[0].name}
-        Status= {"Status"}
-        stat= {asset.status}
+   
 
-    /> 
+     
+    displayAssetsInStore = (asset,index)=>{
+         let counter = index;
 
-    )
+        return (
+            <Assets 
+            key = {counter++}
+            ItemNo = {counter+". "}
+            serialNumber={asset.serial}
+            assetImg = {'Assets/asetsImage.jpeg'}
+            assetName = {asset.asset_name}
+            assetBrand ={asset.brand}
+            assetCategory= {asset.category}
+            assetOwner={asset.owner[0].name}
+            Status= {"Status"}
+            stat= {asset.status}
+            statusHover = {this.checkAssetStatusHandler.bind(this)}
+            click = {(e)=>{
+            // alert("I have been clicked");
+            if(e.target.innerText === "return"){
+                alert("Asset returned sucessfully")
+            }else if(e.target.innerText == "Assign"){
+                    alert("Asset assigned successfully")
+            }
+            }}
+
+        /> 
+
+        )
    }
+
+
+
+  
+
+
 
 componentDidMount(){
 

@@ -67,7 +67,7 @@ class Store extends Component{
   }
 
    checkAssetStatusHandler = (e) => {
-   
+      // alert("Hello")
       if(e.type === "mouseover"){
         this.assignAssetTextEventHandler(e)
        
