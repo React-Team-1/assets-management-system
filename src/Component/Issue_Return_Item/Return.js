@@ -1,14 +1,12 @@
 import React from 'react'
-import "./Issue.css"
+import "./Return.css"
 
-
-
-const Issue = () => {
+const Return = () => {
     return (
         
 
 <div  className="issue_form">
-            <h3>ISSUE ITEM</h3>
+            <h3>RETURN ASSET</h3>
             <div className="input-area">
                 <label><h5>Asset ID:</h5></label><input type='text' id="as-id"  placeholder=""/>
                 <label><h5>Reciepient ID:</h5></label><input type='text' id="re-id"  placeholder=""/>
@@ -24,4 +22,4 @@ const Issue = () => {
     )
 }
 
-export default Issue
+export default Return

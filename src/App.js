@@ -12,7 +12,7 @@ import Landing from "./Component/LandingPage/LandingPage"
 import ProtectedRoute from "./ProtectedRoute"
 import ErrorPage from "./Component/ErrorPage";
 import EditItems from "./Component/Store/EditItems/EditItems"
-import Issue from "./Component/Issue_Return_Item/Issue";
+
 
 
 
@@ -45,9 +45,6 @@ function App() {
               <Dashboard/>*/}
 
 
-                  
-              <Issue/>
-                 
           </div>
          
           
