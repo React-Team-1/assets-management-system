@@ -1,11 +1,21 @@
 
+.parentContainer{
+    padding: 0;
+   
+  }
 .UploadWrapper{
-    background-color: rgb(226, 224, 224);
-    width: 80%;
-    margin: auto;
+    background-color:white;
+    width: 85%;
     height: 100vh;
-    padding: 20px;
+    margin: auto;
 }
+
+.blurBD{
+    filter: blur(0.8px) brightness(40%);
+   
+}
+
+
 
 .titleDiv{
     border-bottom:solid 1px black;
@@ -19,7 +29,7 @@
     vertical-align:middle;
     top:25px;
     left:10px;
-    font-size:1.6rem;
+    font-size:1.2rem;
 }
 
 .dropDown-div{
@@ -29,7 +39,7 @@
 
 .dropDown-div div{
     position: relative;
-    top:50px;
+    top:30px;
     left:20px;
     width:100%;
 }
@@ -43,8 +53,8 @@
 
 .dropDown-div .select-div > select{
     width:100%;
-    padding:10px 7px 10px 7px;
-    font-size:1.1rem;
+    padding:7px 7px 10px 7px;
+    font-size:1rem;
     cursor:pointer;
     outline:none;
     border:solid 1px rgb(92, 92, 92);
@@ -60,6 +70,7 @@
 
 .div-title p{
     position:absolute;
+    font-size: 1.1rem;
     right: 0;
     cursor:pointer;
 }
@@ -77,11 +88,11 @@
     display:grid;
     grid-template-columns: 1fr 1fr;
     gap:60px;
-    position:relative;
+ 
     width:97%;
     font-size: 1.2rem;
-    top:110px;
-    margin:auto;
+   
+    margin:60px auto 0px auto;
 
 }
 
@@ -92,6 +103,10 @@
     cursor: pointer;
     font-size: 1.1rem;
     background-color:white;
+}
+
+h4{
+    font-size: 1.1rem;
 }
 
 .file-input h4{
@@ -106,11 +121,10 @@
 .download-btn-div{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    position:relative;
     width: 97%;
     height: 50px;
     top:160px;
-    margin:auto;
+    margin:60px auto 0px auto;
 }
 
 .download-btn-div button{

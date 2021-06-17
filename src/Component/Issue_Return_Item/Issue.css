@@ -1,0 +1,132 @@
+
+/*
+.input-area{
+    margin-top:30px;
+    display: block;
+}
+
+#as-id{
+    position: relative;
+    font-size:1.1rem;
+    width: 70%;
+    border-radius: 7px;
+    border:solid 1px rgb(216, 216, 216);
+    /*top:20px;
+    outline: none;
+
+}
+
+#re-id{
+    position: relative;
+    font-size:1.1rem;
+    width: 60%;
+    border-radius: 7px;
+    border:solid 1px rgb(216, 216, 216);
+    /*top:20px;
+    outline: none
+}
+
+
+.input-area-txt::placeholder{
+    background-color: rgb(194, 194, 194)  ;
+}
+
+.issue_form{
+    position: absolute;
+    text-align: center;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size:30px;
+    border:solid 1px black;
+    padding: 20px;
+    width: 600px;
+    border-radius:5px;
+    z-index: 10;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+
+}
+
+.issue_form h2{
+    position:relative;
+    top:15px;
+    font-size: 1.5rem;
+    
+}
+
+.issue_form button{
+    margin-top:50px;
+    border-radius:50%;
+    margin-bottom:10px;
+    border:none;
+    color: white;
+    border-radius: 4px;
+    padding:4px 3px 4px 3px ;
+    font-size:1.3rem;
+    background:orangered;
+    width:120px;
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+.issue_form input{
+    width:50%;
+    padding:10px;
+    border-radius: 10px;
+}*/
+*{
+    margin: 0;
+    padding: 0;
+}
+.issue_form{
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    border:solid 1px black;
+    padding: 20px;
+    width: 600px;
+    border-radius:5px;
+    z-index: 10;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+}
+
+.issue_form h3{
+    text-align: center;
+}
+.input-area{
+    
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    column-gap: 0px;
+}
+label, input,textarea{
+    margin: 20px 20px;
+}
+
+#as-id{
+    position: relative;
+    font-size:1.1rem;
+    width: 90%;
+    height: 80%;
+    border-radius: 5px;
+    border:solid 1px rgb(216, 216, 216);
+    /*top:20px;*/
+    outline: none;
+
+}
+
+#re-id{
+    position: relative;
+    font-size:1.1rem;
+    width: 90%;
+    height: 80%;
+    border-radius: 5px;
+    border:solid 1px rgb(216, 216, 216);
+    /*top:20px;*/
+    outline: none
+}

@@ -58,7 +58,7 @@
 
 .error-message {
   color: red;
-  font-size: x-small;
+  font-size: 1rem;
   margin: 2px;
 }
 
@@ -69,6 +69,7 @@ button {
     border: .5px solid grey;
     background-color: #fc6015;
     cursor: pointer;
+    color: white;
     margin-top: 20px;
     font-size: bold;
 }

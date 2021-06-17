@@ -47,9 +47,17 @@
     text-justify: newspaper;
 }
 
+#mobileNav{
+    background-color: #000000d9 !important;
+}
+
+
 .mobile-menu-icon{
-    background-color: rgb(27, 27, 27) !important;
+    /* background-color: #000000d9 !important; */
     width: 50px;
+    top: -26px;
+    margin-left:20px;
+   
 }
 
 

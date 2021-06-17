@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.issue_form{
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    border:solid 1px black;
+    padding: 20px;
+    width: 600px;
+    border-radius:5px;
+    z-index: 10;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+}
+
+.issue_form h3{
+    text-align: center;
+}
+.input-area{
+    
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    column-gap: 0px;
+}
+label, input,textarea{
+    margin: 20px 20px;
+}
+
+#as-id{
+    position: relative;
+    font-size:1.1rem;
+    width: 90%;
+    height: 80%;
+    border-radius: 5px;
+    border:solid 1px rgb(216, 216, 216);
+    /*top:20px;*/
+    outline: none;
+
+}
+
+#re-id{
+    position: relative;
+    font-size:1.1rem;
+    width: 90%;
+    height: 80%;
+    border-radius: 5px;
+    border:solid 1px rgb(216, 216, 216);
+    /*top:20px;*/
+    outline: none
+}

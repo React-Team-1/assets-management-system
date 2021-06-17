@@ -6,6 +6,9 @@ html {
 
 .App{
   height: auto;
+  width: 100%;
+ 
+
 }
 
 .Group-div{
@@ -167,9 +170,6 @@ html {
     vertical-align: middle;
 }
 
-.App{
-  text-align: center;
-}
 
 
 
@@ -222,6 +222,13 @@ html {
       bottom: 7px;
     }
   }
+
+
+
+
+
+
+  
 
   @media screen and (max-width: 420px) {
     #background-imgStyle {

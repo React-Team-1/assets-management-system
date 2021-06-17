@@ -6,7 +6,7 @@ import Dash_Navbar from "./Dash_navbar/Dash_Navbar";
 /*import Charts from "./Charts/Charts"*/
 import Main from "./Main/Main";
 import {Redirect} from "react-router-dom"
-import auth from "../../Auth"
+import Auth from "../../Auth"
 
 
 
@@ -22,8 +22,8 @@ const Dashboard = () => {
         setSidebarOpen(false);
     }
   
-    if(auth.isAuthenticated){
-        return <div className='container'>
+    if(Auth.isAuthenticated){
+        return <div className='Container'>
             <Dash_Navbar sidebarOpen ={sidebarOpen} openSidebar={openSidebar}/>
             <Main/>
             <Dash_sidebar sidebarOpen ={sidebarOpen} closeSidebar={closeSidebar} />

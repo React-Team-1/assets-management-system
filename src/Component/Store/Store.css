@@ -1,5 +1,5 @@
 .StoreWrapper{
-    width: 90%;
+    width: 100%;
     margin: auto;
     min-height: 100%;
 }
@@ -19,9 +19,62 @@
    top: 4.875rem;
 }
 
-.Result{
-    margin-top: 220px;
-    margin-bottom: 120px;
+.item-Result{
+    margin-top: 200px;
+    padding: 15px 15px 45px 15px;
+    min-height: 170px;
+    
+}
+
+
+/*Bootstrap styles starts here*/
+.container-Result{
+    width: 100%;
+    
+
+}
+
+
+/* #status:hover{
+    border: 0px solid #1292e1;
+    background: green;
+    color: white !important;
+    /* content: "Assign" !important; /
+   }  */
+
+
+
+
+
+
+
+@media screen and (max-width:700px) {
+    .item-Result{
+       margin-top:320px;
+    }
+
+}    
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+    .item-Result{
+    margin-top:320px;
+    }
+
+    .searchDiv{
+        width: 75%;
+    }
+
+    .item-colums{
+        padding: 10px;
+    }
+
+
+
 }
 
 
@@ -32,10 +85,10 @@
 
 
 
-
-
-@media screen and (max-width: 420px) {
+/* @media screen and (max-width: 420px) {
     .Result{
          margin:120px 0;
     }
-}
+
+    
+} */

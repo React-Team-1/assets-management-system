@@ -9,7 +9,7 @@ export default function Details(props) {
             <p>{props.title4}: <span>{props.Category}</span></p>
             <p>{props.title5}: <span id="ownership">{props.Ownership}</span></p>
             <p>{props.title6}: <span>{props.PurchaseDate}</span></p>
-            <p>{props.title7}: <span>{props.Status}</span></p>
+            <p>{props.title7}: <span id="status">{props.Status}</span></p>
             <p>{props.title8}: <span>{props.Location}</span></p>
         </div>
     )

@@ -61,7 +61,7 @@ const Main = () => {
                             <div>
                                 <h1>Daily Reports</h1>
                             </div>
-                            <i class="fa fa-thumbtack"></i>
+                            <i className="fa fa-thumbtack"></i>
                         </div>
                         <Chart/>
                     </div>
@@ -73,7 +73,7 @@ const Main = () => {
                             <div>
                                 <h1>Stats Reports</h1>
                             </div>
-                            <i class="fa fa-thumbtack"></i>
+                            <i className="fa fa-thumbtack"></i>
                         </div>
 
                         <div className="charts_right_cards">
