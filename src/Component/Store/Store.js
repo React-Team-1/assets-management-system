@@ -67,7 +67,7 @@ class Store extends Component{
   }
 
    checkAssetStatusHandler = (e) => {
-  
+   
       if(e.type === "mouseover"){
         this.assignAssetTextEventHandler(e)
        
@@ -77,12 +77,6 @@ class Store extends Component{
       this.assignAssetTextEventHandler(e)
      }
 
-    
-      
-    
-        //  e.target.innerText = "Assign";
-       
-   
 
   }
 
