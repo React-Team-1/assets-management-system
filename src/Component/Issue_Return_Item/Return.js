@@ -1,12 +1,15 @@
 import React from 'react'
 import "./Return.css"
+import Close from "./../ClosePopup/close"
+import { props } from 'bluebird'
 
-const Return = () => {
+const Return = (props) => {
     return (
         
 
-<div  className="issue_form">
+<div  className="return_form  hide">
             <h3>RETURN ASSET</h3>
+            <Close click={props.click}/>
             <div className="input-area">
                 <label><h5>Asset ID:</h5></label><input type='text' id="as-id"  placeholder=""/>
                 <label><h5>Reciepient ID:</h5></label><input type='text' id="re-id"  placeholder=""/>

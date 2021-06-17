@@ -1,7 +1,7 @@
 .backDrop{
     width: 100%;
     position: absolute;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(0,0,0,0.7);
     z-index: 1;
     
@@ -10,4 +10,5 @@
 
 .hide{
     display: none;
+    /* overflow-y: hidden; */
 }

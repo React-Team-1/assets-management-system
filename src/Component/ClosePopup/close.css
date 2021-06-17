@@ -1,0 +1,15 @@
+#closeIcon{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    top: 10px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition:0.5s ease-out;
+    
+}
+
+#closeIcon:hover{
+    color:red;
+    transition:0.5s ease-in  ;
+}

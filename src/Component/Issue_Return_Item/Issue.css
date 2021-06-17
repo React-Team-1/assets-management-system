@@ -85,8 +85,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: left;
-    border:solid 1px black;
+    /* text-align: left; */
+    border:solid 1px rgb(235, 235, 235);
     padding: 20px;
     width: 600px;
     border-radius:5px;
@@ -97,6 +97,8 @@
 
 .issue_form h3{
     text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 .input-area{
     
@@ -104,15 +106,16 @@
     grid-template-columns: 2fr 4fr;
     column-gap: 0px;
 }
-label, input,textarea{
+label, #as-id,#re-id,textarea{
     margin: 20px 20px;
 }
 
 #as-id{
     position: relative;
     font-size:1.1rem;
-    width: 90%;
-    height: 80%;
+    /* width: 90%;
+    height: 80%; */
+    padding: 5px;
     border-radius: 5px;
     border:solid 1px rgb(216, 216, 216);
     /*top:20px;*/
@@ -123,10 +126,25 @@ label, input,textarea{
 #re-id{
     position: relative;
     font-size:1.1rem;
-    width: 90%;
-    height: 80%;
+    padding:5px;
     border-radius: 5px;
     border:solid 1px rgb(216, 216, 216);
     /*top:20px;*/
     outline: none
+}
+#comments{
+    border:solid 1px rgb(216, 216, 216);
+    outline: none;
+    padding: 5px;
+}
+
+#issue_btn{
+      position: relative;
+      left:135px;
+      padding: 5px 2px;
+      width: 90px;
+}
+
+.hide{
+    display: none;
 }

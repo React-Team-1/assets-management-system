@@ -8,6 +8,9 @@ import Footer from "../About/Footer"
 import { connect } from 'react-redux'
 import Loading from '../Spinner/Loading'
 import { getAssets } from '../../store/asmActions'
+import Issue from "./../Issue_Return_Item/Issue"
+import ReturnAsset from "./../Issue_Return_Item/Return"
+import  BackDrop from './../Backdrop/backDrop'
 
 
 
@@ -26,12 +29,36 @@ class Store extends Component{
     }
  }
 
+ issueAsset(){
+    let height = window.innerHeight;
+    document.querySelector(".backDrop").classList.remove("hide")
+    document.querySelector(".issue_form").classList.remove("hide");
+    window.scrollTo(0,height/2-60)
+}
+
+returnAsset(){
+  let height = window.innerHeight;
+  document.querySelector(".backDrop").classList.remove("hide")
+  document.querySelector(".return_form").classList.remove("hide");
+  window.scrollTo(0,height/2-60)
+}
+
   render(){
 
     console.log(this.props.assets)
     return (
       <div className="container-div">
+       <BackDrop/>
        <Navbar/>
+       <Issue  click={(e)=>{
+               document.querySelector(".issue_form").classList.add("hide");
+               document.querySelector(".backDrop").classList.add("hide")
+           }}/>
+           <ReturnAsset   click={(e)=>{
+               document.querySelector(".return_form").classList.add("hide");
+               document.querySelector(".backDrop").classList.add("hide")
+           }}/>
+
         <div className="StoreWrapper">
        
 
@@ -115,13 +142,13 @@ class Store extends Component{
         stat= {asset.status}
         statusHover = {this.checkAssetStatusHandler.bind(this)}
         click = {(e)=>{
-          // alert("I have been clicked");
-          if(e.target.innerText === "return"){
-               alert("Asset returned sucessfully")
-          }else if(e.target.innerText == "Assign"){
-                alert("Asset assigned successfully")
-          }
-        }}
+ 
+             if(e.target.innerText === "return"){
+                 this.returnAsset();
+             }else if(e.target.innerText == "Assign"){
+                 this.issueAsset();
+             }
+             }}
 
     /> 
 

@@ -13,10 +13,10 @@ import {Link} from "react-router-dom"
 import { connect } from 'react-redux'
 import {getAssets} from '../../store/asmActions'
 import UploadItems from '../UploadItems/UploadItem'
-import  BackDrop from './../Backdrop/backDrop'
 import axios from 'axios'
 import { getDefaultNormalizer } from '@testing-library/dom'
 import Loading from '../Spinner/Loading'
+
 
 
 
@@ -41,10 +41,13 @@ class Inventory extends Component {
         // let CaretDownIcon = <FontAwesomeIcon icon={faCaretDown} />
         return (
            <div  className="container-div">
+           
            <Navbar/>
+           
+           
             <div className="Inventory-Container">
-             
-            
+
+     
           
                 <div className="Search-Assets-Div">
                     <SearchComponent />
@@ -144,7 +147,7 @@ class Inventory extends Component {
   
     
 
-   
+  
 
      
     displayAssetsInStore = (asset,index)=>{
@@ -164,11 +167,12 @@ class Inventory extends Component {
             stat= {asset.status}
             statusHover = {this.checkAssetStatusHandler.bind(this)}
             click = {(e)=>{
-            // alert("I have been clicked");
+             
+            
             if(e.target.innerText === "return"){
-                alert("Asset returned sucessfully")
+                this.returnAsset();
             }else if(e.target.innerText == "Assign"){
-                    alert("Asset assigned successfully")
+                this.issueAsset();
             }
             }}
 
