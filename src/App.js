@@ -12,6 +12,7 @@ import Landing from "./Component/LandingPage/LandingPage"
 import ProtectedRoute from "./ProtectedRoute"
 import ErrorPage from "./Component/ErrorPage";
 import EditItems from "./Component/Store/EditItems/EditItems"
+import Issue from "./Component/Issue_Return_Item/Issue";
 
 
 
@@ -39,13 +40,13 @@ function App() {
                       <ProtectedRoute exact path="/UploadItems" component={UploadItems}/>
                       <ProtectedRoute path="*" component={ErrorPage}/>
                     {/* <Route path="/EditItems" component={EditItems}/>/}
-              </Switch>  */}
+              </Switch>  
 
-              <Dashboard/>
+              <Dashboard/>*/}
 
 
                   
-                  
+              <Issue/>
                  
           </div>
          
