@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function SearchComponent() {
+export default function SearchComponent(props) {
     let searchIcon = <FontAwesomeIcon icon={faSearch} />
     return (
         <div className="Search-Assets">
-            <input  type="text" placeholder="Search by Assets Tag Number | Serial Number"/>
+            <input  type="text" placeholder={typeof props.holder === "undefined" ?"Search by Assets Tag Number | Serial Number": props.holder}/>
             <i className="Store-icon" id="asset-searchIcon">{searchIcon}</i>
         </div>
     )

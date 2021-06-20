@@ -122,9 +122,11 @@ const signIn = async (props,values)=>{
      {headers: {'content-Type':'application/json'}})
 
      .then((response)=>{
-          console.log(response.data)
+          
            if(response.status === 200){
               localStorage.setItem('token',response.data.token);
+              localStorage.setItem('currentUser',values.username)
+            
 
               Auth.login(()=>{
                       props.history.push("/Dashboard")

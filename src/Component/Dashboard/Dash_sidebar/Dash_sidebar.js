@@ -47,6 +47,11 @@ const Dash_sidebar = ({ sidebarOpen, closeSidebar,props }) => {
                     <a href="#">History</a>
                 </div>
 
+                <div className="sidebar_link">
+                    <i className="fa fa-user text-green"></i>
+                    <Link to="/People">People</Link>
+                </div>
+
                 <h2>LEAVE</h2>
                 <div className="sidebar_logout">
                     <i className="fa fa-sign-out"></i>

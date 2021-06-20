@@ -27,8 +27,12 @@
     grid-template-columns: 2fr 4fr;
     column-gap: 0px;
 }
-label, #as-id,#re-id,textarea{
+label, #as-id, #reAsset-id, textarea{
     margin: 20px 20px;
+}
+#returnComments{
+    border: solid 1px rgb(201, 197, 197);
+    outline: none;
 }
 
 #as-id{
@@ -42,13 +46,14 @@ label, #as-id,#re-id,textarea{
 
 }
 
-#re-id{
+#reAsset-id{
     position: relative;
     font-size:1.1rem;
     padding:5px;
     border-radius: 5px;
     border:solid 1px rgb(216, 216, 216);
     /*top:20px;*/
+    width: 300px;
     outline: none
 }
 
@@ -61,3 +66,11 @@ label, #as-id,#re-id,textarea{
 .hide{
     display: none;
 }
+
+
+input[name=assetId] {
+    pointer-events: none;
+    background-color: rgb(238, 232, 232);
+    font-size: small;
+    color: gray;
+   }

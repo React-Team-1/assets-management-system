@@ -1,0 +1,92 @@
+.people-container{
+   position: relative;
+}
+
+
+.searchDiv{
+    position: relative;
+    width: 50%;
+    margin: 20px auto;
+    top: 1.25rem;
+}
+
+.people-row{
+    margin: 120px auto;
+    width: 100%;
+ 
+}
+
+.people-col{
+    border-left: solid 1px rgb(199, 194, 194);
+}
+
+.people-col .Row{
+    height: 50px;
+    width: 100%;
+    margin-top: 10px;
+    line-height: 50px;
+    vertical-align: middle;
+    
+
+}
+
+.people-details h4{
+    font-size: large;
+    /* border: solid 1px black; */
+    margin-top: 15px;
+}
+
+
+
+.people-details {
+    position: relative;
+    background-color: rgb(252, 250, 250);
+    box-shadow: 0px 7px 23px 0px rgb(255, 255, 255);
+    width: 100%;
+    height: 130px;
+    margin-top: -22px;
+    bottom: 0;
+  }
+
+  .Filter-section{
+      margin: 50px 0px;
+  }
+
+  .Select{
+      width: 100%;
+      border: solid 1px rgb(236, 230, 230);
+      padding: 5px;
+      outline: none;
+      cursor: pointer;
+  }
+
+  .filter-contents{
+      margin-bottom: 10px;
+  }
+
+  
+  .btn-div button{
+      width: 80px;
+      padding: 5px 2px;
+      margin-left: 30px;
+
+  }
+
+  .btn-div :last-child{
+      background-color: green;
+  }
+
+
+  /* People's header style starts here */
+  .people-header{
+      display: flex;
+  }
+
+  .person-info{
+      margin-bottom: 12px;
+      border-bottom: solid 1px rgb(241, 234, 234);
+  }
+
+  .item-colums h4{
+     margin-top: 20px;
+  }

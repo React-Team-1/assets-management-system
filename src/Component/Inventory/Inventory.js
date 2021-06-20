@@ -9,13 +9,13 @@ import SearchCriteria from "./SearchCriteria"
 import SearchComponent from './SearchComponent';
 import Footer from '../About/Footer';
 import Navbar from "../About/Navbar/Navbar"
-import {Link} from "react-router-dom"
 import { connect } from 'react-redux'
 import {getAssets} from '../../store/asmActions'
 import UploadItems from '../UploadItems/UploadItem'
 import axios from 'axios'
 import { getDefaultNormalizer } from '@testing-library/dom'
 import Loading from '../Spinner/Loading'
+import SearchDiv from './SearchDiv'
 
 
 
@@ -49,17 +49,11 @@ class Inventory extends Component {
 
      
           
-                <div className="Search-Assets-Div">
-                    <SearchComponent />
-    
-                      <div className="Upload-addDiv">
-    
-                      <Link to="#">Add NewItem</Link>
-                      <Link to="/UploadItems" onClick={this.showBackDrop}>Upload Item</Link>
-    
-                          
-                      </div>    
-                </div>
+               <SearchDiv
+                addItem= "Add NewItem"
+                uploadItem = "Upload Item"
+                click ={this.showBackDrop}
+               />
     
               <SearchCriteria />
     
@@ -91,7 +85,7 @@ class Inventory extends Component {
                             </div>
                            
                            
-                           { !this.props.assets == "" ? this.props.assets.map(this.displayAssetsInStore) : ""}
+                           { !this.props.assets == "" ? this.props.assets.map(this.displayAssetsInStore) :<h4 style={{textAlign:"center"}}>{this.props.errorMsg} </h4>}
                             
 
 
@@ -165,16 +159,8 @@ class Inventory extends Component {
             assetOwner={asset.owner[0].name}
             Status= {"Status"}
             stat= {asset.status}
-            statusHover = {this.checkAssetStatusHandler.bind(this)}
-            click = {(e)=>{
-             
-            
-            if(e.target.innerText === "return"){
-                this.returnAsset();
-            }else if(e.target.innerText == "Assign"){
-                this.issueAsset();
-            }
-            }}
+            // statusHover = {this.checkAssetStatusHandler.bind(this)}
+        
 
         /> 
 
@@ -204,7 +190,8 @@ componentDidMount(){
 const mapStateToProps =(state)=>{
     return{
         assets:state.assets.Instore,
-        loading:state.assets.loading
+        loading:state.assets.loading,
+        errorMsg: state.assets.error
     }
 }
 

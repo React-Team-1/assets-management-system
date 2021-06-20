@@ -12,6 +12,7 @@ import Landing from "./Component/LandingPage/LandingPage"
 import ProtectedRoute from "./ProtectedRoute"
 import ErrorPage from "./Component/ErrorPage";
 import ViewItem from "./Component/Store/ViewItem/ViewItem"
+import People from "./Component/People/People"
 
 
 
@@ -39,10 +40,17 @@ function App() {
                       <ProtectedRoute exact path="/Inventory"  component={Inventory}/>
                       <ProtectedRoute exact path="/Store"  component={Store}/>
                       <ProtectedRoute exact path="/UploadItems" component={UploadItems}/>
+                      <ProtectedRoute exact path="/People" component={People}/>
+                      <ProtectedRoute exact path="/UploadItems" component={UploadItems}/>
                       <ProtectedRoute path="*" component={ErrorPage}/>
                       <ProtectedRoute path="*" component={ViewItem}/>
+                     
                     {/* <Route path="/ViewItem" component={ViewItem}/>*/}
               </Switch> 
+
+            
+        
+        
         
 
 

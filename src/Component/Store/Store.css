@@ -25,7 +25,21 @@
     min-height: 170px;
     
 }
+.item-colums{
+   /* position: relative; */
+}
 
+#deleteImg{
+    position: absolute;
+      right: 30px;
+      bottom: 35px;
+     width: 20px;
+     cursor: pointer;
+}
+
+#itemId{
+    font-size: 1.2rem;
+}
 
 /*Bootstrap styles starts here*/
 .container-Result{
@@ -33,6 +47,8 @@
     
 
 }
+
+
 
 
 /* #status:hover{

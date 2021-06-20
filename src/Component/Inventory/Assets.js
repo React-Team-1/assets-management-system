@@ -13,7 +13,7 @@ export default function Assets(props) {
 
           <Row className="Items-rowContainer">
                <Col  xs={6} md={2} className="item-colums">
-                  <h5>{props.ItemNo}<Link to="/ViewItem">{props.serialNumber}</Link></h5>
+                  <h6>{props.ItemNo}<Link to="/ViewItem" id="itemId">{props.tagNumber}</Link></h6>
                </Col>
 
                <Col  xs={6} md={2} className="item-colums">
@@ -35,8 +35,13 @@ export default function Assets(props) {
 
                 <Col  xs={6} md={2} className="item-colums">
                     <h5 style={{marginLeft:"48px"}}>{props.Status}</h5>
-                    <h6  onClick={props.click} onMouseOver={props.statusHover} onMouseOut={props.statusHover}  style={{marginLeft:"30px"}} id="status" >{props.stat}</h6>
+              
+                         <h6  onClick={props.click} onMouseOver={props.statusHover} onMouseOut={props.statusHover}  style={{marginLeft:"30px"}} id="status" >{props.stat}</h6>
+                         <img  onClick={props.delete} id="deleteImg" src="Assets/deleteIcon.png" alt="deleteIcon"/>
+                   
+                   
                 </Col>
+                
                 
               
 
