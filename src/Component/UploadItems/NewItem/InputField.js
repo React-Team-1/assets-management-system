@@ -10,7 +10,7 @@ const InputField = props => {
             </div>
             <div className="input-div">
                 <Formik>
-                    <Field type={props.type} placeholder={props.placeholder} />
+                    <Field type={props.type} name={props.name} value={props.value} />
                 </Formik>
             </div>
 

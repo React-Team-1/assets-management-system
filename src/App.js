@@ -61,12 +61,7 @@ function App() {
 
                   
                   
-                 
-         
-         
-          
     </Router>
-    
     
   );
 }
