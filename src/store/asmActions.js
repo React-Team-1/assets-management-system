@@ -214,7 +214,7 @@ export const getPeopleSuccess = (people)=>{
            ).
            then((response)=>{
                dispatch(getPeopleSuccess(response.data.people))
-               console.log(response.data.people);
+            //    console.log(response.data.people);
            })
        }
  }
@@ -268,7 +268,7 @@ export const deleteAssetRequestSuccess = (requestInfo)=>{
            ).
            then((response)=>{
                dispatch(deleteAssetRequestSuccess(response.data))
-               console.log(response.data);
+            //    console.log(response.data);
            }).catch((errors)=>{
                  dispatch(deleteAssetRequestFailure(errors))
            })

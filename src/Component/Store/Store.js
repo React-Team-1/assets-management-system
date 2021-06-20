@@ -12,6 +12,7 @@ import { deleteItem } from '../../store/asmActions'
 import { issueAsset } from '../../store/asmActions'
 import { returnAsset } from '../../store/asmActions'
 import { getPeople } from '../../store/asmActions'
+import { getLocation } from '../../store/LocationAction'
 import Issue from "./../Issue_Return_Item/Issue"
 import ReturnAsset from "./../Issue_Return_Item/Return"
 import BackDrop from './../Backdrop/backDrop'
@@ -43,7 +44,8 @@ class Store extends Component {
 
       assetID: "",
 
-      people:[]
+      people:[],
+      location:[]
     }
 
   }
@@ -103,7 +105,8 @@ class Store extends Component {
 
     //disable input field
     document.querySelector("#as-id").disabled = true;
-
+    
+    
     //get input values
     const assetTagNumber = document.querySelector("#as-id").value;
     let receipientId = document.querySelector("#re-id").value;
@@ -143,10 +146,15 @@ class Store extends Component {
 
 
     this.props.getAssets();
+
+    document.querySelector("#as-id").innerText= ""
+    document.querySelector("#re-id").innerText= ""
+    document.querySelector("#comments").innerText= ""
     
 
-    console.log(this.state.issueDetails)
   }
+
+
 
 
   returnAssetHandler() {
@@ -157,7 +165,7 @@ class Store extends Component {
     const comments = document.querySelector("#returnComments").value;
     let assetId;
     console.log(assetTagNumber)
-    
+    console.log(this.props.assets)
 
 
     this.props.assets.forEach((asset,index)=>{
@@ -195,6 +203,12 @@ class Store extends Component {
 
     this.props.getAssets();
 
+
+    //clear Inputs boxes
+
+    document.querySelector("#as-id").innerText= ""
+    document.querySelector("#reAsset-id").innerText= ""
+    document.querySelector("#returnComments").innerText= ""
 
 
   }
@@ -250,21 +264,51 @@ class Store extends Component {
      return null
   }
 
+  findLocation(location){
+        for(let i = 0; i < this.state.location.length; i++){
+          if(location === this.state.location[i].loc_name){
+               return location;
+          }
+        }
+
+      return null
+  }
+
 
   render() {
     {
         if(this.props.people){
           this.props.people.forEach((person)=>{
+            
             if(this.findUser(person.email) === null){
               this.state.people.push(person)
-              console.log(person)
+              // console.log(person)
             }
-           
-        })
+
+          
+           })
+
+          
+          if(this.props.location){
+
+                this.props.location.forEach((location)=>{
+
+
+                      if(this.findLocation(location.loc_name) === null){
+                          this.state.location.push(location);
+                          // console.log(location)
+                      }
+      
+                  
+                
+                })
+
+          }
+          
       
       }
 
-      console.log(this.state.people)
+      console.log(this.state.location)
       
   }
 
@@ -281,7 +325,12 @@ class Store extends Component {
 
         <Issue 
               people={(e)=>{
+                //get people in database
                 this.props.getPeople()
+
+                //get location in database
+                this.props.getLocation()
+
                 this.suggestPeople(e)
                 }}
 
@@ -295,6 +344,7 @@ class Store extends Component {
                   people={(e)=>{
                           this.props.getPeople()
                           this.suggestPeople(e)
+                          this.props.getLocation()
                           }}
                   isLoading={this.props.loading} 
                   assetId={this.state.assetID} 
@@ -324,7 +374,7 @@ class Store extends Component {
           <div className="item-Result">
             {
               !this.props.loading ? 
-              !this.props.assets == "" ? this.props.assets.map(this.displayAssetsInStore) : <h4 style={{ textAlign: "center" }}> No Asset in Database </h4>
+              !this.props.assets == "" ? this.props.assets.map(this.displayAssetsInStore) : <h4 style={{ textAlign: "center" }}> { this.props.errorMsg === "Network Error" ? this.props.errorMsg : "No Asset in Database"} </h4>
                :<div className="text-center"> <Loading /> </div>
             }
             
@@ -424,17 +474,21 @@ class Store extends Component {
 
   suggestPeople(e){
       
-      // const input = document.querySelector("#re-id")
       const input = e.target;
-      console.log(input)
-      this.autocomplete(input,this.state.people)
+      console.log(this.state.location)
+      
+      this.autocomplete(input,this.state.people,this.state.location)
+
+      
+      
   }
 
   
- autocomplete(inp, arr) {
+  autocomplete = (inp,arr,loc) => {
   console.log(arr)
     
-    var currentFocus = 0;
+    var currentFocus = -1;
+
   
     inp.addEventListener("input", (e) =>{
        
@@ -452,8 +506,9 @@ class Store extends Component {
         e.target.parentNode.appendChild(a);
        
         for (i = 0; i < arr.length; i++) {
-          console.log("I am here")
+      
      
+         
           if (arr[i].email.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
          
             b = document.createElement("DIV");
@@ -472,6 +527,60 @@ class Store extends Component {
             a.appendChild(b);
           }
         }
+
+
+
+
+        for (i = 0; i < loc.length; i++) {
+          console.log(loc)
+
+        
+
+            if (loc[i].room[i] && loc[i].room[i].room_tag.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+         
+              b = document.createElement("DIV");
+             
+              b.innerHTML = "<strong>" + loc[i].room[i].room_tag.substr(0, val.length) + "</strong>";
+              b.innerHTML += loc[i].room[i].room_tag.substr(val.length);
+         
+              b.innerHTML += "<input type='hidden' value='" + loc[i].room[i].room_tag + "'>";
+        
+                  b.addEventListener("click", function(e) {
+                
+                  inp.value = this.getElementsByTagName("input")[0].value;
+               
+                  closeAllLists();
+              });
+              a.appendChild(b);
+            }
+
+          
+     
+         
+        }
+   
+        // loc.map((location,index)=>{
+        //   console.log(typeof location.room[index].room_tag)
+        //     if(location.room[index].room_tag.substr(0,val.length).toUpperCase() == val.toUpperCase ){
+              
+        //       b = document.createElement("DIV");
+        //       b.innerHTML  =  "<strong>" +location.room[index].room_tag.substr(0, val.length) + "</strong>";
+        //       b.innerHTML +=  location.room[index].room_tag.substr(val.length);
+        //       b.innerHTML += "<input type='hidden' value='" +  location.room[index].room_tag + "'>";
+
+        //       b.addEventListener("click", function(e) {
+              
+        //                 inp.value = this.getElementsByTagName("input")[0].value;
+                     
+        //                 closeAllLists();
+        //             });
+        //             a.appendChild(b);
+        //           }
+
+
+        //     })
+  
+
     });
     
     inp.addEventListener("keydown", function(e) {
@@ -549,14 +658,15 @@ class Store extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log(state.assets.Instore)
   return {
     assets: state.assets.Instore,
     loading: state.assets.loading,
     errorMsg: state.assets.error,
     msg: state.assets.msg,
     people: state.assets.people,
-    deleteInfo: state.assets.DeleterequestInfo
+    deleteInfo: state.assets.DeleterequestInfo,
+    location:state.location.locations,
+
     
   }
 }
@@ -569,7 +679,8 @@ const mapDispatchToProps = dispatch => {
     issueAsset: (data) => dispatch(issueAsset(data)),
     returnAsset: (data) => dispatch(returnAsset(data)),
     getPeople: (data) => dispatch(getPeople(data)),
-    deleteItem:(data) => dispatch(deleteItem(data))
+    deleteItem:(data) => dispatch(deleteItem(data)),
+    getLocation: () => dispatch(getLocation())
   }
 }
 
