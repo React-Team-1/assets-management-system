@@ -13,6 +13,7 @@ import { issueAsset } from '../../store/asmActions'
 import { returnAsset } from '../../store/asmActions'
 import { getPeople } from '../../store/asmActions'
 import { getLocation } from '../../store/LocationAction'
+import { getCategories } from '../../store/CategoryActions'
 import Issue from "./../Issue_Return_Item/Issue"
 import ReturnAsset from "./../Issue_Return_Item/Return"
 import BackDrop from './../Backdrop/backDrop'
@@ -45,7 +46,9 @@ class Store extends Component {
       assetID: "",
 
       people:[],
-      location:[]
+      location:[],
+      AssetType:[]
+
     }
 
   }
@@ -55,7 +58,10 @@ class Store extends Component {
 
     if (typeof this.props.assets === "undefined") {
       this.props.getAssets();
+      this.props.getCategories();
+
     }
+    
 
   }
 
@@ -276,7 +282,10 @@ class Store extends Component {
 
 
   render() {
+
+    
     {
+      this.getAssetType();
         if(this.props.people){
           this.props.people.forEach((person)=>{
             
@@ -308,7 +317,8 @@ class Store extends Component {
       
       }
 
-      console.log(this.state.location)
+      console.log(this.props.categories)
+      
       
   }
 
@@ -366,7 +376,10 @@ class Store extends Component {
 
 
           <div className="SearchItemCriteria">
-            <SearchCriteria />
+            <SearchCriteria
+            category={this.props.categories} 
+
+            />
           </div>
 
 
@@ -559,26 +572,7 @@ class Store extends Component {
          
         }
    
-        // loc.map((location,index)=>{
-        //   console.log(typeof location.room[index].room_tag)
-        //     if(location.room[index].room_tag.substr(0,val.length).toUpperCase() == val.toUpperCase ){
-              
-        //       b = document.createElement("DIV");
-        //       b.innerHTML  =  "<strong>" +location.room[index].room_tag.substr(0, val.length) + "</strong>";
-        //       b.innerHTML +=  location.room[index].room_tag.substr(val.length);
-        //       b.innerHTML += "<input type='hidden' value='" +  location.room[index].room_tag + "'>";
 
-        //       b.addEventListener("click", function(e) {
-              
-        //                 inp.value = this.getElementsByTagName("input")[0].value;
-                     
-        //                 closeAllLists();
-        //             });
-        //             a.appendChild(b);
-        //           }
-
-
-        //     })
   
 
     });
@@ -648,8 +642,53 @@ class Store extends Component {
       closeAllLists(e.target);
   });
   }
+
+
+  checkAssetType=(type)=>{
+      if(this.state.AssetType){
+        this.state.AssetType.forEach((asset,index)=>{
+           if(asset[index] === type ){
+             return asset[index];
+           }
+        })
+      }
+
+      return null
+  }
   
 
+  getAssetType =()=>{
+
+   
+    
+      if(this.props.assets){
+       
+        for(let i = 0; i < this.props.assets; i++){
+            if(this.checkAssetType(this.props.assets[i].asset_name === null)){
+              this.setState({
+                ...this.state,
+                AssetType: this.props.assets[i].asset_name
+              })
+            }
+        }
+
+
+
+        // this.props.assets.forEach((asset)=>{
+        //      if(this.checkAssetType(asset.asset_name) === null){
+        //       this.setState({
+        //         ...this.state,
+        //         AssetType: asset.asset_name
+        //       })
+        //      }
+        // })
+       }
+    
+     
+      
+       
+
+  }
   
 
 }
@@ -666,6 +705,7 @@ const mapStateToProps = (state) => {
     people: state.assets.people,
     deleteInfo: state.assets.DeleterequestInfo,
     location:state.location.locations,
+    categories:state.categories.category
 
     
   }
@@ -680,7 +720,8 @@ const mapDispatchToProps = dispatch => {
     returnAsset: (data) => dispatch(returnAsset(data)),
     getPeople: (data) => dispatch(getPeople(data)),
     deleteItem:(data) => dispatch(deleteItem(data)),
-    getLocation: () => dispatch(getLocation())
+    getLocation: () => dispatch(getLocation()),
+    getCategories: () => dispatch(getCategories())
   }
 }
 
