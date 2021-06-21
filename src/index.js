@@ -8,6 +8,7 @@ import {Provider} from "react-redux"
 import teamsReducer  from "./store/reducers/teams"
 import  userReducer from "./store/reducers/user"
 import locationReducer from "./store/reducers/location"
+import categoryReducer from "./store/reducers/categoryReducer"
 import  assetsReducer from "./store/reducers/assets"
 import dashBoardReducer from "./store/reducers/dashboardData"
 import reduxThunk from "redux-thunk"
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
       user :userReducer,
       assets : assetsReducer,
       dashboardData: dashBoardReducer,
-      location:locationReducer
+      location:locationReducer,
+      categories: categoryReducer
 })
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

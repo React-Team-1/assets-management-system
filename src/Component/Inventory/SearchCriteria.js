@@ -3,7 +3,7 @@ import { Col, Container } from 'react-bootstrap';
 import CategoryComp from './CategoryComp';
 import Row from 'react-bootstrap/Row'
 
-export default function SearchCriteria() {
+export default function SearchCriteria(props) {
     return (
 
 
@@ -12,7 +12,9 @@ export default function SearchCriteria() {
             <Row>
                
                   <Col  xs={6} md={2}>
-                         <div > <CategoryComp cTitle ="Category" type="Select Category"/></div>
+                         <div > <CategoryComp 
+                          categories={props.category} 
+                          cTitle ="Category" type="Select Category"/></div>
                   </Col>
                    <Col  xs={6} md={2}>
                         <div> <CategoryComp cTitle ="Type" type="ItemType"/></div>
