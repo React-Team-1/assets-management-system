@@ -9,7 +9,7 @@ const   SearchDiv = (props)=> {
 
           <div className="Upload-addDiv">
           {/* Add NewItem */}
-          <Link to="#">{props.addItem}</Link>
+          <Link to="/AddNewItem">{props.addItem}</Link>
           <Link to="/UploadItems" onClick={props.click}>{props.uploadItem}</Link>
 
               

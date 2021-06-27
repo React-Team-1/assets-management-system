@@ -1,6 +1,7 @@
 import * as actionType from "../actions"
 const initialState = {
      loading:false,
+     Instore:[]
 }
 
 
@@ -31,13 +32,13 @@ const assetsReducer =(state = initialState, action)=>{
         //Issue assets starts here
 
         case actionType.ISSUE_ASSET_REQUEST:
-            console.log("Issue Asset Success was called")
+  
              return{
                  ...state,
                  loading:true
              }
         case actionType.ISSUE_ASSET_SUCCESS:
-            console.log("I am called");
+          
             return{
                 ...state,
                 loading:false,
@@ -109,13 +110,6 @@ const assetsReducer =(state = initialState, action)=>{
                     loading:false,
                     DeleterequestInfo: action.payload                 
                 }
-
-                case actionType.DELETE_ASSET_FAILURE:
-                    return{
-                        ...state,
-                        loading:false,
-                        error: action.payload                 
-                    }
           
 
         

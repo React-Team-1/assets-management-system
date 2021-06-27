@@ -4,9 +4,10 @@ import CategoryComp from './CategoryComp';
 import Row from 'react-bootstrap/Row'
 
 export default function SearchCriteria(props) {
+         
     return (
 
-
+       
 
          <Container fluid>
             <Row>
@@ -17,19 +18,30 @@ export default function SearchCriteria(props) {
                           cTitle ="Category" type="Select Category"/></div>
                   </Col>
                    <Col  xs={6} md={2}>
-                        <div> <CategoryComp cTitle ="Type" type="ItemType"/></div>
+                        <div> <CategoryComp
+                         categories={props.type}
+                         cTitle ="Type" type="ItemType"/></div>
                    </Col>
 
                    <Col  xs={6} md={2}>
-                         <div> <CategoryComp cTitle ="Brand" type="Select Brand"/></div>
+                         <div> <CategoryComp 
+                         cTitle ="Brand" 
+                         categories={props.brands}
+                         type="Select Brand"/></div>
                    </Col>
 
                    <Col  xs={6} md={2}>
-                         <div> <CategoryComp cTitle ="Ownership" type="Select Owner"/></div>
+                         <div> <CategoryComp 
+                         cTitle ="Ownership" 
+                         categories = {props.owners}
+                         type="Select Owner"/></div>
                    </Col>
 
                    <Col  xs={6} md={2}>
-                      <div><CategoryComp cTitle ="Status" type="Select Status"/></div>
+                      <div><CategoryComp
+                       cTitle ="Status" 
+                       categories ={props.status}
+                       type="Select Status"/></div>
                    </Col>
 
                    <Col  xs={6} md={2}>

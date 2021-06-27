@@ -13,7 +13,7 @@ import { issueAsset } from '../../store/asmActions'
 import { returnAsset } from '../../store/asmActions'
 import { getPeople } from '../../store/asmActions'
 import { getLocation } from '../../store/LocationAction'
-import { getCategories } from '../../store/CategoryActions'
+import {  getCategories,getcategoriesType,getBrandTypes ,getOwnerTypes,getStatus} from '../../store/CategoryActions'
 import Issue from "./../Issue_Return_Item/Issue"
 import ReturnAsset from "./../Issue_Return_Item/Return"
 import BackDrop from './../Backdrop/backDrop'
@@ -23,7 +23,7 @@ import DeleteItem from '../DeleteModal/deleteItem'
 
 
 
-class Store extends Component {
+class Store extends React.Component {
 
 
   constructor(props) {
@@ -35,7 +35,7 @@ class Store extends Component {
         issueComments: " "
 
       },
-      
+
       returnDetails: {
         id: "",
         issuedID: "",
@@ -45,9 +45,12 @@ class Store extends Component {
 
       assetID: "",
 
-      people:[],
-      location:[],
-      AssetType:[]
+      people: [],
+      location: [],
+      AssetType: [],
+      Brands:[],
+      Owner:[],
+      Status:[]
 
     }
 
@@ -56,14 +59,18 @@ class Store extends Component {
 
   componentDidMount() {
 
-    if (typeof this.props.assets === "undefined") {
-      this.props.getAssets();
-      this.props.getCategories();
 
-    }
-    
+    this.props.getAssets();
+    this.props.getCategories();
+    // this.getStatus();
+    // this.getAssetStatus();
+
+    // if(!this.props.loading){
+    //   this.getAssetType();
+    //  }
 
   }
+
 
   issueAsset(e) {
     let assetId = e.target.parentElement.parentElement.children[0].children[0].lastChild.innerText;
@@ -111,8 +118,8 @@ class Store extends Component {
 
     //disable input field
     document.querySelector("#as-id").disabled = true;
-    
-    
+
+
     //get input values
     const assetTagNumber = document.querySelector("#as-id").value;
     let receipientId = document.querySelector("#re-id").value;
@@ -120,12 +127,12 @@ class Store extends Component {
     console.log(receipientId)
     let assetId;
 
-    this.props.assets.forEach((asset)=>{
-      if(asset.tag_number === assetTagNumber){
-          assetId = asset._id;
+    this.props.assets.forEach((asset) => {
+      if (asset.tag_number === assetTagNumber) {
+        assetId = asset._id;
       }
     })
-    
+
 
     //set issue details to state
     this.setState({
@@ -144,19 +151,19 @@ class Store extends Component {
     document.querySelector(".checkContainer").classList.remove("hide");
     // checkContainer
 
-    setTimeout(()=>{
+    setTimeout(() => {
       document.querySelector(".checkContainer").classList.add("hide");
       document.querySelector(".backDrop").classList.add("hide")
-      
-    },5000)
+
+    }, 5000)
 
 
     this.props.getAssets();
 
-    document.querySelector("#as-id").innerText= ""
-    document.querySelector("#re-id").innerText= ""
-    document.querySelector("#comments").innerText= ""
-    
+    document.querySelector("#as-id").innerText = ""
+    document.querySelector("#re-id").innerText = ""
+    document.querySelector("#comments").innerText = ""
+
 
   }
 
@@ -174,13 +181,13 @@ class Store extends Component {
     console.log(this.props.assets)
 
 
-    this.props.assets.forEach((asset,index)=>{
-      if(asset.tag_number === assetTagNumber && asset.history[asset.history.length-1].recipient_id === receipientId){
+    this.props.assets.forEach((asset, index) => {
+      if (asset.tag_number === assetTagNumber && asset.history[asset.history.length - 1].recipient_id === receipientId) {
         console.log(asset.history)
-          assetId = asset._id;
-          receipientId = asset.history[asset.history.length-1]._id;
+        assetId = asset._id;
+        receipientId = asset.history[asset.history.length - 1]._id;
 
-          
+
       }
     });
 
@@ -198,13 +205,13 @@ class Store extends Component {
 
     document.querySelector(".return_form").classList.add("hide");
     document.querySelector(".checkContainer").classList.remove("hide");
-  
 
-    setTimeout(()=>{
+
+    setTimeout(() => {
       document.querySelector(".checkContainer").classList.add("hide");
       document.querySelector(".backDrop").classList.add("hide")
-      
-    },5000)
+
+    }, 5000)
 
 
     this.props.getAssets();
@@ -212,115 +219,133 @@ class Store extends Component {
 
     //clear Inputs boxes
 
-    document.querySelector("#as-id").innerText= ""
-    document.querySelector("#reAsset-id").innerText= ""
-    document.querySelector("#returnComments").innerText= ""
+    document.querySelector("#as-id").innerText = ""
+    document.querySelector("#reAsset-id").innerText = ""
+    document.querySelector("#returnComments").innerText = ""
 
 
   }
 
-  closeDeleteAssetHandler(){
+  closeDeleteAssetHandler() {
     document.querySelector(".deleteContainer").classList.add("hide");
     document.querySelector(".backDrop").classList.add("hide");
   }
 
-  deleteYesClickHandler(e){
+  deleteYesClickHandler(e) {
     let assetTagNumber = this.state.deleteAssetID;
     let assetID;
 
-    this.props.assets.forEach((asset)=>{
-          if(asset.tag_number === assetTagNumber){
-              assetID = asset._id;
-          }
+    this.props.assets.forEach((asset) => {
+      if (asset.tag_number === assetTagNumber) {
+        assetID = asset._id;
+      }
     })
 
     let currentUser = localStorage.getItem("currentUser");
-    
-    this.props.deleteItem({assetID,currentUser})
+
+    this.props.deleteItem({ assetID, currentUser })
 
     // Refresh assets
-      this.props.getAssets();
-  
-
-  
-      document.querySelector(".deleteContainer").classList.add("hide");
-      document.querySelector(".checkContainer").classList.remove("hide");
+    this.props.getAssets();
 
 
-    setTimeout(()=>{
+
+    document.querySelector(".deleteContainer").classList.add("hide");
+    document.querySelector(".checkContainer").classList.remove("hide");
+
+
+    setTimeout(() => {
       document.querySelector(".checkContainer").classList.add("hide");
       document.querySelector(".backDrop").classList.add("hide")
-      
-    },2000);
+
+    }, 2000);
 
 
-   
+
 
   }
 
 
-  findUser(emailAddress){
+  findUser(emailAddress) {
     //  this.state.people
-    for(let  i = 0; i < this.state.people.length; i++){
-         if(emailAddress === this.state.people[i].email){
-             return emailAddress
-         }
+    for (let i = 0; i < this.state.people.length; i++) {
+      if (emailAddress === this.state.people[i].email) {
+        return emailAddress
+      }
     }
 
-     return null
+    return null
   }
 
-  findLocation(location){
-        for(let i = 0; i < this.state.location.length; i++){
-          if(location === this.state.location[i].loc_name){
-               return location;
+  findLocation(location) {
+    for (let i = 0; i < this.state.location.length; i++) {
+      if (location === this.state.location[i].loc_name) {
+        return location;
+      }
+    }
+
+    return null
+  }
+
+
+
+
+    available_People_Location(){
+      if (this.props.people) {
+        this.props.people.forEach((person) => {
+
+          if (this.findUser(person.email) === null) {
+            this.state.people.push(person)
+            // console.log(person)
           }
+
+
+        })
+     
+
+        if (this.props.location) {
+
+          this.props.location.forEach((location) => {
+
+
+            if (this.findLocation(location.loc_name) === null) {
+              this.state.location.push(location);
+              // console.log(location)
+            }
+
+
+
+          })
+
         }
 
-      return null
-  }
+
+      }
+    }
 
 
   render() {
 
+   
     
+
     {
+
+      ///pushes the people and location for suggestions
+      this.available_People_Location();
+
       this.getAssetType();
-        if(this.props.people){
-          this.props.people.forEach((person)=>{
-            
-            if(this.findUser(person.email) === null){
-              this.state.people.push(person)
-              // console.log(person)
-            }
+      this.getAssetBrand();
+      this.getAssetOwner();
+      // this.getAssetStatus();
+     
+    
+     
 
-          
-           })
-
-          
-          if(this.props.location){
-
-                this.props.location.forEach((location)=>{
+    }
 
 
-                      if(this.findLocation(location.loc_name) === null){
-                          this.state.location.push(location);
-                          // console.log(location)
-                      }
-      
-                  
-                
-                })
-
-          }
-          
-      
-      }
-
-      console.log(this.props.categories)
-      
-      
-  }
+    
 
 
 
@@ -328,43 +353,43 @@ class Store extends Component {
       <div className="container-div">
         <BackDrop />
         <Navbar />
-        <DeleteItem  
-        isLoading ={this.props.loading}
-        yesclick={(e)=>{this.deleteYesClickHandler(e)}}
-         click={this.closeDeleteAssetHandler}/>
+        <DeleteItem
+          isLoading={this.props.loading}
+          yesclick={(e) => { this.deleteYesClickHandler(e) }}
+          click={this.closeDeleteAssetHandler} />
 
-        <Issue 
-              people={(e)=>{
-                //get people in database
-                this.props.getPeople()
+        <Issue
+          people={(e) => {
+            //get people in database
+            this.props.getPeople()
 
-                //get location in database
-                this.props.getLocation()
+            //get location in database
+            this.props.getLocation()
 
-                this.suggestPeople(e)
-                }}
+            this.suggestPeople(e)
+          }}
 
-                assetId={this.state.assetID} 
-                submit={() => this.issueAssetHandler()} 
-                click={(e) => { this.closeIssue_AssetPopupHandler() }}
-                isLoading ={this.props.loading}
-         />
+          assetId={this.state.assetID}
+          submit={() => this.issueAssetHandler()}
+          click={(e) => { this.closeIssue_AssetPopupHandler() }}
+          isLoading={this.props.loading}
+        />
 
-        <ReturnAsset 
-                  people={(e)=>{
-                          this.props.getPeople()
-                          this.suggestPeople(e)
-                          this.props.getLocation()
-                          }}
-                  isLoading={this.props.loading} 
-                  assetId={this.state.assetID} 
-                  submit={() => this.returnAssetHandler()} 
-                  click={(e) => {
-                    this.closeReturn_AssetPopupHandler()
-        }} />
+        <ReturnAsset
+          people={(e) => {
+            this.props.getPeople()
+            this.suggestPeople(e)
+            this.props.getLocation()
+          }}
+          isLoading={this.props.loading}
+          assetId={this.state.assetID}
+          submit={() => this.returnAssetHandler()}
+          click={(e) => {
+            this.closeReturn_AssetPopupHandler()
+          }} />
 
-        <SuccessCheck/>
-        
+        <SuccessCheck />
+
 
         <div className="StoreWrapper">
 
@@ -377,8 +402,11 @@ class Store extends Component {
 
           <div className="SearchItemCriteria">
             <SearchCriteria
-            category={this.props.categories} 
-
+              category={this.props.categories}
+              type= {this.props.categoriesTypes}
+              brands = {this.props.brands}
+              owners = {this.props.owners}
+              status ={["instore","issued"]}
             />
           </div>
 
@@ -386,11 +414,11 @@ class Store extends Component {
 
           <div className="item-Result">
             {
-              !this.props.loading ? 
-              !this.props.assets == "" ? this.props.assets.map(this.displayAssetsInStore) : <h4 style={{ textAlign: "center" }}> { this.props.errorMsg === "Network Error" ? this.props.errorMsg : "No Asset in Database"} </h4>
-               :<div className="text-center"> <Loading /> </div>
+              !this.props.loading ?
+                !this.props.assets == "" ? this.props.assets.map(this.displayAssetsInStore) : <h4 style={{ textAlign: "center" }}> {this.props.errorMsg === "Network Error" ? this.props.errorMsg : "No Asset in Database"} </h4>
+                : <div className="text-center"> <Loading /> </div>
             }
-            
+
 
           </div>
 
@@ -461,21 +489,21 @@ class Store extends Component {
           }
         }}
 
-        delete={(e)=>{
+        delete={(e) => {
 
           let assetId = e.target.parentElement.parentElement.children[0].children[0].lastChild.innerText;
-           
-           let height = window.innerHeight;
-           document.querySelector(".backDrop").classList.remove("hide");
-           document.querySelector(".deleteContainer").classList.remove("hide");
+
+          let height = window.innerHeight;
+          document.querySelector(".backDrop").classList.remove("hide");
+          document.querySelector(".deleteContainer").classList.remove("hide");
           //  deleteContainer
-           window.scrollTo(0, height / 2 - 60)
+          window.scrollTo(0, height / 2 - 60)
 
-           this.setState({
-             ...this.state,
-             deleteAssetID: assetId
+          this.setState({
+            ...this.state,
+            deleteAssetID: assetId
 
-           })
+          })
 
         }}
 
@@ -485,213 +513,328 @@ class Store extends Component {
   }
 
 
-  suggestPeople(e){
-      
-      const input = e.target;
-      console.log(this.state.location)
-      
-      this.autocomplete(input,this.state.people,this.state.location)
+  suggestPeople(e) {
 
-      
-      
+    const input = e.target;
+    console.log(this.state.location)
+
+    this.autocomplete(input, this.state.people, this.state.location)
+
+
+
   }
 
-  
-  autocomplete = (inp,arr,loc) => {
-  console.log(arr)
-    
+
+  autocomplete = (inp, arr, loc) => {
+    console.log(arr)
+
     var currentFocus = -1;
 
-  
-    inp.addEventListener("input", (e) =>{
-       
-        var a, b, i, val = e.target.value;
-        
 
-        closeAllLists();
-        if (!val) { return false;}
-        currentFocus = -1;
-      
-        a = document.createElement("DIV");
-        a.setAttribute("id", e.target.id + "autocomplete-list");
-        a.setAttribute("class", "autocomplete-items");
+    inp.addEventListener("input", (e) => {
 
-        e.target.parentNode.appendChild(a);
-       
-        for (i = 0; i < arr.length; i++) {
-      
-     
-         
-          if (arr[i].email.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-         
-            b = document.createElement("DIV");
-           
-            b.innerHTML = "<strong>" + arr[i].email.substr(0, val.length) + "</strong>";
-            b.innerHTML += arr[i].email.substr(val.length);
-       
-            b.innerHTML += "<input type='hidden' value='" + arr[i].email + "'>";
-      
-                b.addEventListener("click", function(e) {
-              
-                inp.value = this.getElementsByTagName("input")[0].value;
-             
-                closeAllLists();
-            });
-            a.appendChild(b);
-          }
+      var a, b, i, val = e.target.value;
+
+
+      closeAllLists();
+      if (!val) { return false; }
+      currentFocus = -1;
+
+      a = document.createElement("DIV");
+      a.setAttribute("id", e.target.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+
+      e.target.parentNode.appendChild(a);
+
+      for (i = 0; i < arr.length; i++) {
+
+
+
+        if (arr[i].email.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+
+          b = document.createElement("DIV");
+
+          b.innerHTML = "<strong>" + arr[i].email.substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].email.substr(val.length);
+
+          b.innerHTML += "<input type='hidden' value='" + arr[i].email + "'>";
+
+          b.addEventListener("click", function (e) {
+
+            inp.value = this.getElementsByTagName("input")[0].value;
+
+            closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+
+
+
+
+      for (i = 0; i < loc.length; i++) {
+        console.log(loc)
+
+
+
+        if (loc[i].room[i] && loc[i].room[i].room_tag.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+
+          b = document.createElement("DIV");
+
+          b.innerHTML = "<strong>" + loc[i].room[i].room_tag.substr(0, val.length) + "</strong>";
+          b.innerHTML += loc[i].room[i].room_tag.substr(val.length);
+
+          b.innerHTML += "<input type='hidden' value='" + loc[i].room[i].room_tag + "'>";
+
+          b.addEventListener("click", function (e) {
+
+            inp.value = this.getElementsByTagName("input")[0].value;
+
+            closeAllLists();
+          });
+          a.appendChild(b);
         }
 
 
 
 
-        for (i = 0; i < loc.length; i++) {
-          console.log(loc)
+      }
 
-        
 
-            if (loc[i].room[i] && loc[i].room[i].room_tag.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-         
-              b = document.createElement("DIV");
-             
-              b.innerHTML = "<strong>" + loc[i].room[i].room_tag.substr(0, val.length) + "</strong>";
-              b.innerHTML += loc[i].room[i].room_tag.substr(val.length);
-         
-              b.innerHTML += "<input type='hidden' value='" + loc[i].room[i].room_tag + "'>";
-        
-                  b.addEventListener("click", function(e) {
-                
-                  inp.value = this.getElementsByTagName("input")[0].value;
-               
-                  closeAllLists();
-              });
-              a.appendChild(b);
-            }
 
-          
-     
-         
-        }
-   
-
-  
 
     });
-    
-    inp.addEventListener("keydown", function(e) {
-        var x = document.getElementById(e.target.id +"autocomplete-list");
-        if (x) x = x.querySelectorAll("div");
-        
-        if (e.keyCode == 40) {
-          
-          currentFocus++;
-         
-          addActive(x);
-        } else if (e.keyCode == 38) { 
-         
-          currentFocus--;
-        
-          addActive(x);
-        } else if (e.keyCode == 13) {
-      
-          e.preventDefault();
-          if (currentFocus > -1) {
-          
-            if (x) x[currentFocus].click();
-          }
+
+    inp.addEventListener("keydown", function (e) {
+      var x = document.getElementById(e.target.id + "autocomplete-list");
+      if (x) x = x.querySelectorAll("div");
+
+      if (e.keyCode == 40) {
+
+        currentFocus++;
+
+        addActive(x);
+      } else if (e.keyCode == 38) {
+
+        currentFocus--;
+
+        addActive(x);
+      } else if (e.keyCode == 13) {
+
+        e.preventDefault();
+        if (currentFocus > -1) {
+
+          if (x) x[currentFocus].click();
         }
+      }
     });
 
-    const addActive =(x)=>{
-      
-  
+    const addActive = (x) => {
+
+
       if (!x) return false;
-     
-        removeActive(x);
-      
+
+      removeActive(x);
+
       console.log(x.length)
       if (currentFocus >= x.length) currentFocus = 0;
       if (currentFocus < 0) currentFocus = (x.length - 1);
- 
+
       console.log(x[currentFocus])
       console.log(parseInt(currentFocus))
       let currentDiv = x[currentFocus];
-  
-      
+
+
       console.log(currentDiv)
-        currentDiv.classList.add("autocomplete-active") 
-      
-      
+      currentDiv.classList.add("autocomplete-active")
+
+
     }
+
+
     function removeActive(x) {
-      
+
       for (var i = 0; i < x.length; i++) {
         x[i].classList.remove("autocomplete-active");
       }
     }
-    function closeAllLists(elmnt) {
-     
+
+
+   function closeAllLists(elmnt) {
+
       var x = document.getElementsByClassName("autocomplete-items");
       for (var i = 0; i < x.length; i++) {
         if (elmnt != x[i] && elmnt != inp) {
-        x[i].parentNode.removeChild(x[i]);
+          x[i].parentNode.removeChild(x[i]);
+        }
       }
     }
-  }
 
-  document.addEventListener("click", function (e) {
+    document.addEventListener("click", function (e) {
       closeAllLists(e.target);
-  });
+    });
   }
 
 
-  checkAssetType=(type)=>{
-      if(this.state.AssetType){
-        this.state.AssetType.forEach((asset,index)=>{
-           if(asset[index] === type ){
-             return asset[index];
-           }
-        })
+  checkAssetType = (type) => {
+
+
+
+        if( this.state.AssetType.length > 0){
+           
+
+          for(let i = 0; i < this.state.AssetType.length; i++){
+              
+              if(type == this.state.AssetType[i]){
+                  return type;
+              }
+          }
+
+         }
+
+
+     return null
+
+
+  }
+
+
+
+  getAssetType = () => {
+    if (this.props.assets.length > 0) {
+
+        for(let i = 0; i < this.props.assets.length; i++){
+          
+          if(this.checkAssetType(this.props.assets[i].asset_name) === null){        
+
+            
+            this.state.AssetType.push(this.props.assets[i].asset_name);
+
+          }
       }
 
-      return null
-  }
-  
 
-  getAssetType =()=>{
-
+    }
    
-    
-      if(this.props.assets){
-       
-        for(let i = 0; i < this.props.assets; i++){
-            if(this.checkAssetType(this.props.assets[i].asset_name === null)){
-              this.setState({
-                ...this.state,
-                AssetType: this.props.assets[i].asset_name
-              })
-            }
-        }
 
 
-
-        // this.props.assets.forEach((asset)=>{
-        //      if(this.checkAssetType(asset.asset_name) === null){
-        //       this.setState({
-        //         ...this.state,
-        //         AssetType: asset.asset_name
-        //       })
-        //      }
-        // })
-       }
-    
-     
-      
-       
-
+     this.props.getcategoriesType(this.state.AssetType)
   }
-  
+
+
+  //Brands category methods starts here
+
+  checkAssetBrand = (type) => {
+
+
+
+    if( this.state.Brands.length > 0){
+       
+
+      for(let i = 0; i < this.state.Brands.length; i++){
+          
+          if(type == this.state.Brands[i]){
+              return type;
+          }
+       }
+
+     }
+
+
+ return null
+
 
 }
+
+
+  getAssetBrand = () => {
+    if (this.props.assets.length > 0) {
+
+        for(let i = 0; i < this.props.assets.length; i++){
+           
+          if(this.checkAssetBrand(this.props.assets[i].brand) === null){        
+
+            
+            this.state.Brands.push(this.props.assets[i].brand);
+
+          }
+      }
+
+
+    }
+   
+
+
+   
+      this.props.getBrandTypes(this.state.Brands)
+  }
+
+
+
+ //Owner category methods starts here
+
+ checkAssetOwner = (type) => {
+
+
+
+  if( this.state.Owner.length > 0){
+     
+
+    for(let i = 0; i < this.state.Owner.length; i++){
+        
+        if(type == this.state.Owner[i]){
+            return type;
+        }
+     }
+
+   }
+
+
+return null
+
+
+}
+
+
+getAssetOwner = () => {
+
+  if (this.props.assets.length > 0) {
+
+      for(let i = 0; i < this.props.assets.length; i++){
+        
+        if(this.checkAssetOwner(this.props.assets[i].owner) === null){        
+
+          
+          this.state.Owner.push(this.props.assets[i].owner);
+
+        }
+    }
+
+
+  }
+ 
+
+
+
+    console.log(this.state.Owner)
+    this.props.getOwnerTypes(this.state.Owner)
+  
+}
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
 
 
 
@@ -704,10 +847,12 @@ const mapStateToProps = (state) => {
     msg: state.assets.msg,
     people: state.assets.people,
     deleteInfo: state.assets.DeleterequestInfo,
-    location:state.location.locations,
-    categories:state.categories.category
+    location: state.location.locations,
+    categories: state.categories.category,
+    categoriesTypes: state.categories.categoryTypes,
+    brands: state.categories.brandTypes,
+    owners: state.categories.ownerTypes
 
-    
   }
 }
 
@@ -719,9 +864,13 @@ const mapDispatchToProps = dispatch => {
     issueAsset: (data) => dispatch(issueAsset(data)),
     returnAsset: (data) => dispatch(returnAsset(data)),
     getPeople: (data) => dispatch(getPeople(data)),
-    deleteItem:(data) => dispatch(deleteItem(data)),
+    deleteItem: (data) => dispatch(deleteItem(data)),
     getLocation: () => dispatch(getLocation()),
-    getCategories: () => dispatch(getCategories())
+    getCategories: () => dispatch(getCategories()),
+    getcategoriesType : (types) => dispatch(getcategoriesType(types)),
+    getBrandTypes : (brands)=> dispatch(getBrandTypes(brands)),
+    getOwnerTypes : (owners) => dispatch(getOwnerTypes(owners)),
+    
   }
 }
 

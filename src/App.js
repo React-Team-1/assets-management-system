@@ -4,6 +4,7 @@ import React from "react"
 import './App.css';
 import About from "./Component/About/About"
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom"
+import AddNewItem from "./Component/UploadItems/NewItem/AddNewItem"
 import UploadItems from "./Component/UploadItems/UploadItem"
 import Inventory from "./Component/Inventory/Inventory"
 import Store from "./Component/Store/Store"
@@ -41,11 +42,12 @@ function App() {
                       <ProtectedRoute exact path="/Store"  component={Store}/>
                       <ProtectedRoute exact path="/UploadItems" component={UploadItems}/>
                       <ProtectedRoute exact path="/People" component={People}/>
-                      <ProtectedRoute exact path="/UploadItems" component={UploadItems}/>
+                      <ProtectedRoute exact path="/AddNewItem" component={AddNewItem}/>
+                      <ProtectedRoute exact path="/ViewItem" component={ViewItem}/>
+
                       <ProtectedRoute path="*" component={ErrorPage}/>
                       <ProtectedRoute path="*" component={ViewItem}/>
                      
-                    {/* <Route path="/ViewItem" component={ViewItem}/>*/}
               </Switch> 
 
             

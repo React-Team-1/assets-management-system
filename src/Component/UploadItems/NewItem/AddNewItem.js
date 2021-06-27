@@ -6,10 +6,16 @@ import InputField from './InputField'
 import './AddNewItem.css'
 
 
-export default class AddNewItem extends Component {
-    state = {
+ class AddNewItem extends Component {
+    
 
-        selectedFile: <FontAwesomeIcon icon={faImage} id="imgIcon" />
+    constructor(props){
+          super(props)
+          this.state = {
+         
+            selectedFile: <FontAwesomeIcon icon={faImage} id="imgIcon" />,
+            
+        }
     }
 
     fileSelectedhandler = event => {
@@ -23,7 +29,36 @@ export default class AddNewItem extends Component {
     }
 
 
+  submitData=(e)=>{
+        let  inputValues = document.querySelectorAll("input");
+        let textareaValues = document.querySelectorAll("textarea");
 
+        this.setState({
+            ...this.state,
+            AssetDetails:{
+                 assetTag: inputValues[1].value,
+                 itemType:  inputValues[0].value,
+                 location: inputValues[3].value,
+                 area: inputValues[4].valueAsDate,
+                 serialNumber:inputValues[2].value,
+                 brand: inputValues[5].value,
+                 status: inputValues[6].value,
+                 ownerShip: inputValues[7].value,
+                 category: inputValues[8].value,
+                 purchaseDate: inputValues[9].value,
+                 incharge: inputValues[10].value,
+                 price: inputValues[11].value
+                }
+        },()=>{
+            console.log(this.state.AssetDetails);
+        })
+        inputValues.forEach(element => {
+             console.log(element.value)
+        });
+       
+
+        e.preventDefault();
+  }
 
 
     render() {
@@ -31,6 +66,9 @@ export default class AddNewItem extends Component {
         let imgIcon = this.state.selectedFile;
 
         return (
+            <form>
+
+          
             <div>
                 <div className="pic-container" id="fileContainer" >
                     <input
@@ -43,18 +81,18 @@ export default class AddNewItem extends Component {
                     <button id="OpenImgUpload" onClick={this.fileUploaderHandler} >{imgIcon}<span>Upload Picture</span></button>
                 </div>
                 <div className="input-container">
-                    <InputField title="Asset Tag" />
-                    <InputField title="Item type" />
-                    <InputField title="Location" />
-                    <InputField title="Area" />
-                    <InputField title="Serial Number" />
-                    <InputField title="Brand" />
-                    <InputField title="Status" />
-                    <InputField title="Ownership" />
-                    <InputField title="Category" />
-                    <InputField title="Date Purchased" />
-                    <InputField title="In-Charge" />
-                    <InputField title="Price" />
+                    <InputField title="Asset Tag" type="text" />
+                    <InputField title="Item type"  type="text" />
+                    <InputField title="Location"  type="text" />
+                    <InputField title="Area"  type="text" />
+                    <InputField title="Serial Number"  type="text" />
+                    <InputField title="Brand"  type="text" />
+                    <InputField title="Status"  type="text" />
+                    <InputField title="Ownership"  type="text" />
+                    <InputField title="Category"  type="text" />
+                    <InputField title="Date Purchased"  type="text"  />
+                    <InputField title="In-Charge"  type="text" />
+                    <InputField title="Price"  type="text" />
                 </div>
                 <div className="textarea-container">
                     <div>
@@ -69,13 +107,17 @@ export default class AddNewItem extends Component {
                 </div>
                 <div className="buttons">
                     <button>Close</button>
-                    <button>Add Item</button>
+                    <button type="submit"   onClick={(e)=>{this.submitData(e)}}>Add Item</button>
                 </div>
 
 
             </div>
 
+            </form>
+
         )
     }
 }
 
+
+export default AddNewItem

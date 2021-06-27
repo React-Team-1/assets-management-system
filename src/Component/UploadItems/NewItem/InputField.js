@@ -9,9 +9,9 @@ const InputField = props => {
                 <label>{props.title}</label>
             </div>
             <div className="input-div">
-                <Formik>
-                    <Field type={props.type} placeholder={props.placeholder} />
-                </Formik>
+        
+                    <input type={props.type} placeholder={props.placeholder} />
+                
             </div>
 
         </div>

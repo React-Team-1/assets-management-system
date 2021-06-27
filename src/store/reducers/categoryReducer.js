@@ -28,6 +28,50 @@ const categoryReducer = (state= initialState, action)=>{
                   loading:false,
                   error:action.payload
               }
+
+          case actionType.BRAND_TYPE_REQUEST:
+              return{
+                ...state,
+                loading:true
+              }
+          case actionType.BRAND_TYPE_REQUEST_SUCCESS:
+              return{
+                  ...state,
+                  loading:false,
+                  categoryTypes: action.payload
+              }
+
+          case actionType.BRAND_REQUEST:
+              return{
+                  ...state,
+                  loading:true
+              }
+
+          case actionType.BRAND_REQUEST_SUCCESS:
+              return{
+                  ...state,
+                  loading:false,
+                  brandTypes:action.payload
+              }
+
+            case actionType.OWNER_REQUEST:
+                return{
+                    ...state,
+                    loading:true,
+                    
+                }
+
+            case actionType.OWNER_REQUEST_SUCCESS:
+                return{
+                    ...state,
+                    loading:false,
+                    ownerTypes: action.payload
+                }
+
+           
+
+
+                
            default:
                return state;
        }
