@@ -11,9 +11,10 @@ import { getAssets } from '../../store/asmActions'
 import { deleteItem } from '../../store/asmActions'
 import { issueAsset } from '../../store/asmActions'
 import { returnAsset } from '../../store/asmActions'
+import {searchAssets}from '../../store/asmActions'
 import { getPeople } from '../../store/asmActions'
 import { getLocation } from '../../store/LocationAction'
-import {  getCategories,getcategoriesType,getBrandTypes ,getOwnerTypes,getStatus} from '../../store/CategoryActions'
+import { getCategories,getcategoriesType,getBrandTypes ,getOwnerTypes,getStatus} from '../../store/CategoryActions'
 import Issue from "./../Issue_Return_Item/Issue"
 import ReturnAsset from "./../Issue_Return_Item/Return"
 import BackDrop from './../Backdrop/backDrop'
@@ -395,7 +396,32 @@ class Store extends React.Component {
 
 
           <div className="searchDiv">
-            <SearchComponent promptText="" />
+            <SearchComponent promptText="" change={(e)=>{
+                if(e.target.value == ""){
+                  this.props.getAssets();
+                }
+            }}  
+            
+            click={(e)=>{ 
+                 e.persist();
+                 let assetInfo = "";
+                  
+                     //Ensures that input is not null as a result of the react life cycle
+                 if(e.target.parentElement.previousElementSibling !== null){
+                    assetInfo = e.target.parentElement.previousElementSibling.value;
+                
+                          //checks the search format and performs an action based on it
+                        if(assetInfo.includes("-")){
+                          this.props.searchAssets({tagNumber:assetInfo})
+                            alert("True called");
+                        }else{
+                          this.props.searchAssets({serial:assetInfo})
+                      
+                        } 
+                 }
+               
+                 
+            }} />
           </div>
 
 
@@ -870,6 +896,7 @@ const mapDispatchToProps = dispatch => {
     getcategoriesType : (types) => dispatch(getcategoriesType(types)),
     getBrandTypes : (brands)=> dispatch(getBrandTypes(brands)),
     getOwnerTypes : (owners) => dispatch(getOwnerTypes(owners)),
+    searchAssets: (assetDetail)=> dispatch(searchAssets(assetDetail))
     
   }
 }

@@ -16,6 +16,14 @@
  export const RETURN_ASSET_FAILURE = 'RETURN_ASSET_FAILURE '
 
 
+
+ 
+ //Search assets
+ export const SEARCH_ASSET_REQUEST = 'SEARCH_ASSET_REQUEST'
+ export const SEARCH_ASSET_SUCCESS = 'SEARCH_ASSET_SUCCESS'
+ export const SEARCH_ASSET_FAILURE = 'SEARCH_ASSET_FAILURE '
+
+
  //Get people action
  export const GET_PEOPLE_REQUEST = 'GET_PEOPLE_REQUEST';
  export const GET_PEOPLE_FAILURE = 'GET_PEOPLE_FAILURE';

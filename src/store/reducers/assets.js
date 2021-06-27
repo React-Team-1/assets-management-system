@@ -110,6 +110,26 @@ const assetsReducer =(state = initialState, action)=>{
                     loading:false,
                     DeleterequestInfo: action.payload                 
                 }
+
+
+                case actionType.SEARCH_ASSET_REQUEST:
+                    return{
+                        ...state,
+                        loading:true
+                    }
+                case actionType.SEARCH_ASSET_SUCCESS:
+                    return{
+                        ...state,
+                        loading:false,
+                        Instore:action.payload
+                    }
+
+                case actionType.SEARCH_ASSET_FAILURE:
+                    return{
+                        ...state,
+                        loading:false,
+                        error: action.payload
+                    }
           
 
         
