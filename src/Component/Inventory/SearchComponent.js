@@ -7,8 +7,8 @@ export default function SearchComponent(props) {
     let searchIcon = <FontAwesomeIcon icon={faSearch} />
     return (
         <div className="Search-Assets">
-            <input  type="text" placeholder={typeof props.holder === "undefined" ?"Search by Assets Tag Number | Serial Number": props.holder}/>
-            <i className="Store-icon" id="asset-searchIcon">{searchIcon}</i>
+            <input  onChange={props.change} type="text" placeholder={typeof props.holder === "undefined" ?"Search by Assets Tag Number | Serial Number": props.holder}/>
+            <i  onClick={props.click} className="Store-icon" id="asset-searchIcon">{searchIcon}</i>
         </div>
     )
 }

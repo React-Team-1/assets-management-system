@@ -201,6 +201,63 @@ export const returnAsset = (details)=>{
 
 
 
+
+
+//search Assets
+export const searchAssetRequest = ()=>{
+    return{
+        type:actionType.SEARCH_ASSET_REQUEST
+    }
+}
+
+
+export const searchAssetSuccess = (data)=>{
+     return{
+          type: actionType.SEARCH_ASSET_SUCCESS,
+          payload: data
+     }
+}
+
+
+
+export const searchAssetFailure = (data)=>{
+    return{
+         type: actionType.SEARCH_ASSET_SUCCESS,
+         payload: data
+    }
+}
+
+
+
+
+
+export const searchAssets =  (assetDetail)=>{
+       return dispatch =>{
+             dispatch(searchAssetRequest);
+
+              axios.post("https://rocky-falls-71050.herokuapp.com/assets/search",assetDetail,
+             {
+                 headers:{Authorization:"bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYwYWQxOTY5ZDUwMjRmMDY0ZmFkYjE4ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyeSQxMiR5RUFJWHNXMmR4eThMYzZDcmRLeHVPRjB6SnJ1aGk3RE1kOWtGam9YY0xhS2xiL2g1MGpMcSJ9LCJpYXQiOjE2MjQ3NzE4NDd9.D9aFZ-6BY-YGuQ3DXwRfEpeZWU94JoiWb5hnRiP-cjw"}
+             }).then((response)=>{
+                   console.log(response);
+                   dispatch(searchAssetSuccess(response.data.assets))
+             }).catch((error)=>{
+                 console.log(error);
+                 dispatch(error)
+             })
+       }
+}
+
+
+
+
+
+
+
+
+
+
+
 ///get people request 
 
 
