@@ -1,5 +1,6 @@
 import * as actionType from "./actions"
 import axios from "axios"
+// import Store from "./../../src/Component/Store/Store"
 
 
 //Category asset action creators
@@ -51,5 +52,96 @@ export const getCategories = ()=>{
 
        }
 }
+
+
+
+
+//category type actions
+export const getcategoriesTypeRequest = ()=>{
+       return{
+             type: actionType.BRAND_TYPE_REQUEST
+       }
+}
+
+
+
+export const getcategoriesTypeRequestSuccess = (value)=>{
+    return{
+          type: actionType.BRAND_TYPE_REQUEST_SUCCESS,
+          payload: value
+    }
+}
+
+
+
+
+
+
+export const getcategoriesType=(type)=>{
+      return dispatch => {
+            dispatch(getcategoriesTypeRequest);
+
+            dispatch(getcategoriesTypeRequestSuccess(type))
+
+      }
+}
+
+
+
+
+//Catgory Brand actions
+export const getBrandsRequest = ()=>{
+       return{
+            type: actionType.BRAND_REQUEST
+       }
+}
+
+
+export const getBrandsRequestSuccess = (data)=>{
+      return{
+            type:actionType.BRAND_REQUEST_SUCCESS,
+            payload: data
+      }
+}
+
+
+export const getBrandTypes = (brand) =>{
+      return dispatch => {
+          dispatch(getBrandsRequest);
+
+          dispatch(getBrandsRequestSuccess(brand))
+      }
+}
+
+
+
+//Catgory Brand actions
+export const getOwnerRequest = ()=>{
+    return{
+         type: actionType.OWNER_REQUEST
+    }
+}
+
+
+export const getOwnerRequestSuccess = (data)=>{
+   return{
+         type:actionType.OWNER_REQUEST_SUCCESS,
+         payload: data
+   }
+}
+
+
+export const getOwnerTypes = (owner) =>{
+   return dispatch => {
+       dispatch(getOwnerRequest);
+
+       dispatch(getOwnerRequestSuccess(owner))
+   }
+}
+
+
+
+
+
 
 

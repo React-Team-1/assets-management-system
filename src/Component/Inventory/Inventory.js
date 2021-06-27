@@ -26,7 +26,8 @@ class Inventory extends Component {
        super(props);
 
        this.state ={
-           AssetsHeader:["No/Serial Number","Picture","Assets","Type/Brand","Category/Ownership","Location/Area"]
+           AssetsHeader:["No/Serial Number","Picture","Assets","Type/Brand","Category/Ownership","Location/Area"],
+           AssetType: []
        }
 
        
@@ -36,6 +37,18 @@ class Inventory extends Component {
 
 
      render(){
+
+        {
+
+            ///pushes the people and location for suggestions
+            // this.available_People_Location();
+      
+            this.getAssetType();
+           
+      
+      
+      
+          }
         
         let searchIcon = <FontAwesomeIcon icon={faSearch} />
         // let CaretDownIcon = <FontAwesomeIcon icon={faCaretDown} />
@@ -55,7 +68,11 @@ class Inventory extends Component {
                 click ={this.showBackDrop}
                />
     
-              <SearchCriteria />
+              <SearchCriteria 
+               category={this.props.categories}
+               type ={this.state.AssetType}
+
+              />
     
     
                
@@ -151,12 +168,12 @@ class Inventory extends Component {
             <Assets 
             key = {counter++}
             ItemNo = {counter+". "}
-            serialNumber={asset.serial}
-            assetImg = {'Assets/asetsImage.jpeg'}
+            tagNumber={asset.tag_number}
+            assetImg = {asset.image}
             assetName = {asset.asset_name}
             assetBrand ={asset.brand}
             assetCategory= {asset.category}
-            assetOwner={asset.owner[0].name}
+            assetOwner={asset.owner}
             Status= {"Status"}
             stat= {asset.status}
             // statusHover = {this.checkAssetStatusHandler.bind(this)}
@@ -182,6 +199,62 @@ componentDidMount(){
 
 }
 
+
+
+checkAssetType = (type) => {
+
+    alert(type);
+
+
+        if( this.state.AssetType.length > 0){
+           
+
+          for(let i = 0; i < this.state.AssetType.length; i++){
+              
+              if(type == this.state.AssetType[i]){
+                  return type;
+              }
+          }
+
+         }
+
+
+     return null
+
+
+  }
+
+
+
+  getAssetType = () => {
+    if (this.props.assets.length > 0) {
+      alert("Values in asset")
+
+        for(let i = 0; i < this.props.assets.length; i++){
+           console.log(this.checkAssetType(this.props.assets[i].asset_name))
+          if(this.checkAssetType(this.props.assets[i].asset_name) === null){        
+
+            
+            this.state.AssetType.push(this.props.assets[i].asset_name)
+
+
+
+          }
+      }
+
+
+    }
+   
+
+     console.log(this.state.AssetType)
+
+
+
+
+
+  }
+
+
 }
 
 
@@ -191,7 +264,8 @@ const mapStateToProps =(state)=>{
     return{
         assets:state.assets.Instore,
         loading:state.assets.loading,
-        errorMsg: state.assets.error
+        errorMsg: state.assets.error,
+        categories: state.categories.category,
     }
 }
 

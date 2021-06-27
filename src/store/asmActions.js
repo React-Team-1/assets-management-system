@@ -1,6 +1,11 @@
 import * as actionType from "./actions"
 import axios from "axios"
 
+
+const result = {
+    types: []
+}
+
 export const fetchAssetsRequest = ()=>{
     return{
         type: actionType.FETCH_ASSETS_REQUEST
@@ -8,11 +13,11 @@ export const fetchAssetsRequest = ()=>{
 }
 
 
-export const fetchAssetsSucess = assets =>{
-    console.log(assets)
+export const fetchAssetsSucess = result =>{
+   
     return{
         type: actionType.FETCH_ASSETS_SUCESS,
-        payload:assets
+        payload:result
     }
 }
 
@@ -22,6 +27,10 @@ export const fetchAssetsError = error =>{
         payload:error
     }
 }
+
+
+
+
 
 
 
@@ -43,17 +52,16 @@ export const getAssets =()=>{
                 },
         }
     ).then((response)=>{
-         
-     const assets = response.data.data;
+
+        
+
+        const assets = response.data.data;
+        result.assets = assets;
+
+
      dispatch(fetchAssetsSucess(assets))
  
-     //    if(response.status === 200){
-     //        // console.log("This is me", response.data.data.length);
-     //        let returnedValues = response.data.data;
-     //        // console.log(returnedValues.length)
-     //        this.props.getAssets(returnedValues);
-     //    }
-            
+   
     }).catch((error)=>{
          dispatch(fetchAssetsError(error.message))
     })
@@ -63,8 +71,27 @@ export const getAssets =()=>{
 
 
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Issue Asset actions
 export const issueAssetRequest = ()=>{

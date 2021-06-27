@@ -41,8 +41,29 @@
 
 
 
+  //get Brands Type
+  export const BRAND_TYPE_REQUEST = 'BRAND_TYPE_REQUEST';
+  export const BRAND_TYPE_REQUEST_SUCCESS = 'BRAND_TYPE_REQUEST_SUCCESS';
+//   export const BRAND_TYPE_REQUEST_SUCCESS = 'BRAND_TYPE_REQUEST_SUCCESS';
 
 
+
+  //get Brands 
+  export const BRAND_REQUEST = 'BRAND_REQUEST';
+  export const BRAND_REQUEST_SUCCESS = 'BRAND_REQUEST_SUCCESS';
+//   export const BRAND_REQUEST_SUCCESS = 'BRAND_TYPE_REQUEST_SUCCESS';
+
+
+
+  //get Owner
+  export const OWNER_REQUEST = 'OWNER_REQUEST';
+  export const OWNER_REQUEST_SUCCESS = 'OWNER_REQUEST_SUCCESS';
+
+
+  
+  //get Status
+  export const STATUS_REQUEST = 'STATUS_REQUEST';
+  export const STATUS_REQUEST_SUCCESS = 'STATUS_REQUEST_SUCCESS';
 
   
   

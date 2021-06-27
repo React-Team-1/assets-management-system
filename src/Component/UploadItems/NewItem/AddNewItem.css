@@ -65,20 +65,26 @@
 }
 
 textarea {
+<<<<<<< HEAD
     border: 1px solid rgb(211, 210, 210);
     padding: 10px;
+=======
+    border: 1px solid rgb(92, 92, 92);
+>>>>>>> localdev
     width: 90%;
     resize: none;
+    margin: 5px 20px !important;
 }
 
 .buttons {
     text-align: right;
+    padding-bottom:20px;
 }
 
 .buttons button {
     margin: 20px 20px 0px 0px;
-    padding: 5px 20px;
-    font-size: small;
+    padding: 7px 20px;
+    font-size: medium;
     outline: none;
     background-color: rgb(34, 33, 33);
     color: white;
@@ -86,6 +92,6 @@ textarea {
 }
 
 .buttons button:nth-child(2n) {
-    background-color: rgb(245, 160, 80);    
+    background-color: rgba(252, 96, 21, 1); 
 }
 
